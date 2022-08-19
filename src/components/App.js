@@ -1,5 +1,6 @@
 import {Routes, Route} from 'react-router-dom'
 import GlobalStyles from '../GlobalStyles';
+import CharacterPage from './CharacterPage';
 
 import Home from './Home'
 import NavBar from './NavBar'
@@ -14,6 +15,7 @@ function App() {
         <ContentWrapper>
         <Routes>          
           <Route exact path ="/" element={<Home/>}/>
+          <Route exact path ='/:id' element={<CharacterPage />}/>
         </Routes>
       </ContentWrapper>
     </PageWrapper>
