@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
 
 
-export default function PlayerCard({id, username}) {
+export default function PlayerCard({username}) {
     return(
         <div>
-            <Link to={id}>{username}</Link>
+            <h2>{username}</h2>
         </div>
     )
 }

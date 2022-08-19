@@ -1,19 +1,16 @@
-import { useEffect, useState } from "react"
+// import { useEffect, useState } from "react"
+import { Link } from 'react-router-dom'
 import PlayerCard from './PlayerCard'
 
-const Home = () => {
+const Home = ({players}) => {
   
-  const [players, setPlayers] = useState([])
-
-  useEffect(()=>{
-    fetch('http://localhost:9292/')
-      .then(r=>r.json())
-      .then(data=>setPlayers(data))
-  }, [])
   
   console.log(players)
   const renderPlayers = players.map(player => {
-    return <PlayerCard key={player.id} id={player.id} username={player.username} />
+    return (<Link  key={player.id}  to={`/${player.id}`}>
+      <PlayerCard id={player.id} username={player.username} />
+      </Link>
+      )
   })
 
   return(
