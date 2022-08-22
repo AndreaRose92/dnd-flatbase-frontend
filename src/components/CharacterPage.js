@@ -18,9 +18,13 @@ export default function CharacterPage({players}) {
     // console.log(characters)
 
     const renderCharacters = characters.map(character => {
-        return (<Link key={character.id} to={`/${params.username}/${character.id}`}>
-            <CharacterSheet name={character.name} />
-        </Link>)
+        return (
+            <Link key={character.id} to={`/${params.username}/${character.id}`}>
+                <CharacterSheet character={character}>
+                    <h2>{character.name}</h2>
+                </CharacterSheet>
+            </Link>
+        )
     })
 
     return (

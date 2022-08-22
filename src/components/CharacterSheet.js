@@ -1,9 +1,9 @@
 
-export default function CharacterSheet({name}) {
-    console.log(name)
+export default function CharacterSheet({character}) {
+    console.log(character)
     return (
         <div>
-            <h2>{name}</h2>
+            <h2>{character.name}</h2>
         </div>
     )
 }
