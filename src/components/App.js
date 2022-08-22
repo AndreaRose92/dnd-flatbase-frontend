@@ -1,6 +1,7 @@
 import {Switch, Route, useRouteMatch} from 'react-router-dom'
 import GlobalStyles from '../GlobalStyles';
 import CharacterPage from './CharacterPage';
+import CharacterSheet from './CharacterSheet';
 import { useEffect, useState } from 'react';
 import Home from './Home'
 import NavBar from './NavBar'
