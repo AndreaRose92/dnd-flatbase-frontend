@@ -7,7 +7,7 @@ const Home = ({players}) => {
   
   console.log(players)
   const renderPlayers = players.map(player => {
-    return (<Link  key={player.id}  to={`/${player.id}`}>
+    return (<Link  key={player.id}  to={`/${player.username}`}>
       <PlayerCard id={player.id} username={player.username} />
       </Link>
       )

@@ -30,12 +30,12 @@ function App() {
           <Route exact path ="/">
             <Home players={players}/>
           </Route>
-          <Route exact path ='/:id'>
+          <Route exact path ='/:username'>
             <CharacterPage players={players}/>
           </Route>
-          <Route exact path={`/${match.url}/:id`}>
+          {/* <Route exact path={`/${match.url}/:id`}>
             <CharacterSheet />
-          </Route>
+          </Route> */}
         </Switch>
       </ContentWrapper>
     </PageWrapper>
