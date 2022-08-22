@@ -33,7 +33,7 @@ function App() {
             <CharacterPage players={players} characters={characters} />
           </Route>
           <Route exact path={`/:username/:id`}>
-            <CharacterSheet characters={characters} />
+            <CharacterSheet />
           </Route>
         </Switch>
       </ContentWrapper>
