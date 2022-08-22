@@ -1,4 +1,4 @@
-import {Routes, Route, matchPath} from 'react-router-dom'
+import {Switch, Route, useRouteMatch} from 'react-router-dom'
 import GlobalStyles from '../GlobalStyles';
 import CharacterPage from './CharacterPage';
 import { useEffect, useState } from 'react';
@@ -9,7 +9,8 @@ import PageWrapper, { ContentWrapper } from "./styles/Grids.style"
 // import CharacterSheet from './CharacterSheet';
 
 function App() {
-  // const match = matchPath()
+
+  const match = useRouteMatch()
 
   const [players, setPlayers] = useState([])
 
@@ -23,12 +24,18 @@ function App() {
     <PageWrapper>
       <GlobalStyles/>
       <NavBar/>
-        <ContentWrapper>
-        <Routes>          
-          <Route exact path ="/" element={<Home players={players}/>}/>
-          <Route exact path ='/:id' element={<CharacterPage players={players}/>}/>
-          {/* <Route exact path={`/${match.url}/:id`} element={<CharacterSheet />} /> */}
-        </Routes>
+      <ContentWrapper>
+        <Switch>          
+          <Route exact path ="/">
+            <Home players={players}/>
+          </Route>
+          <Route exact path ='/:id'>
+            <CharacterPage players={players}/>
+          </Route>
+          <Route exact path={`/${match.url}/:id`}>
+            <CharacterSheet />
+          </Route>
+        </Switch>
       </ContentWrapper>
     </PageWrapper>
   );
