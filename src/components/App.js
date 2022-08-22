@@ -1,4 +1,4 @@
-import {Switch, Route, useRouteMatch} from 'react-router-dom'
+import {Switch, Route} from 'react-router-dom'
 import GlobalStyles from '../GlobalStyles';
 import CharacterPage from './CharacterPage';
 import CharacterSheet from './CharacterSheet';
@@ -11,9 +11,8 @@ import PageWrapper, { ContentWrapper } from "./styles/Grids.style"
 
 function App() {
 
-  const match = useRouteMatch()
-
   const [players, setPlayers] = useState([])
+  const [characters, setCharacters] = useState([])
 
   useEffect(()=>{
     fetch('http://localhost:9292/')
@@ -28,14 +27,14 @@ function App() {
       <ContentWrapper>
         <Switch>          
           <Route exact path ="/">
-            <Home players={players}/>
+            <Home players={players} setCharacters={setCharacters}/>
           </Route>
           <Route exact path ='/:username'>
-            <CharacterPage players={players}/>
+            <CharacterPage players={players} characters={characters} />
           </Route>
-          {/* <Route exact path={`/${match.url}/:id`}>
-            <CharacterSheet />
-          </Route> */}
+          <Route exact path={`/:username/:id`}>
+            <CharacterSheet characters={characters} />
+          </Route>
         </Switch>
       </ContentWrapper>
     </PageWrapper>
