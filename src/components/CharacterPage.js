@@ -1,29 +1,15 @@
-import { useEffect, useState } from "react"
-import { Link, useParams, useRouteMatch } from "react-router-dom"
-import CharacterSheet from './CharacterSheet'
+import { Link, useParams} from "react-router-dom"
+import CharCard from "./CharCard"
+// import CharacterSheet from './CharacterSheet'
 
-export default function CharacterPage({players}) {
+export default function CharacterPage({characters, setCharacters}) {
     const params = useParams()
-    const match = useRouteMatch()
-    // console.log(params)
-    // const player = players[params.playerID]
-    // console.log(params.id)
-    const [characters, setCharacters] = useState([])
-    useEffect(()=>{
-        fetch(`http://localhost:9292/${params.username}`)
-            .then(r=>r.json())
-            .then(data=>setCharacters(data))
-    }, [params])
-
-    // console.log(characters)
-
+    
     const renderCharacters = characters.map(character => {
         return (
-            <Link key={character.id} to={`/${params.username}/${character.id}`}>
-                <CharacterSheet character={character}>
-                    <h2>{character.name}</h2>
-                </CharacterSheet>
-            </Link>
+            <CharCard key={character.id} character={character} >
+                <Link to={`${params.username}/${character.id}`}>{character.name}</Link>
+            </CharCard> 
         )
     })
 
