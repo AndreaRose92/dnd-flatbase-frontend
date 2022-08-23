@@ -8,7 +8,9 @@ export default function CharacterPage({characters, setCharacters}) {
     const renderCharacters = characters.map(character => {
         return (
             <CharCard key={character.id} character={character} >
-                <Link to={`${params.username}/${character.id}`}>{character.name}</Link>
+                <Link to={`${params.username}/${character.id}`}>
+                    {character.name}
+                </Link>
             </CharCard> 
         )
     })

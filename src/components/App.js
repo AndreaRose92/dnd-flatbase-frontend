@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import Home from './Home'
 import NavBar from './NavBar'
 
-import PageWrapper, { ContentWrapper } from "./styles/Grids.style"
+import PageWrapper, { ContentWrapper } from "./styles/MainGrids.style"
 // import CharacterSheet from './CharacterSheet';
 
 function App() {

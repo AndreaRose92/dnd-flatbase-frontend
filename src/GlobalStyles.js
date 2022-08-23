@@ -5,10 +5,16 @@ const GlobalStyles = createGlobalStyle`
 
   * {
     font-family: 'Draconis';
+    margin: 0;
   }
 
-  h1 {
-    font-size: 100px;
+  h2 {
+    font-size: 1.8rem;
   }
+
+  p {
+    font-size: 13px;
+  }
+
 `
 export default GlobalStyles
