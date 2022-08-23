@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { CharacterGrid, CharacterWrapper } from "./styles/MainGrids.style"
-import { StatBox, CSHeader, AuxiliaryBox, HealthBox } from "./styles/CharacterSheetGrids.style"
+import { StatBox, CSHeader, AuxiliaryBox, HealthBox, SavingThrow, ProficiencyBox, EquipmentBox, SensesBox } from "./styles/CharacterSheetGrids.style"
 
 export default function CharacterSheet() {
     const params = useParams()
@@ -116,7 +116,7 @@ export default function CharacterSheet() {
                         <div><p>PROFICIENCY</p></div>
                         <div className="mid">
                             <h2>
-                                {race.speed}
+                                {`+num`}
                             </h2>                            
                         </div>
                         <div className="bottom">
@@ -141,6 +141,42 @@ export default function CharacterSheet() {
                         <div><h2>42</h2></div>
                     </div>
                 </HealthBox>
+                <SavingThrow>
+                    <div>
+                        <div className="top">
+                            <div>O</div>
+                            <div><h3>Stat bonus</h3></div>
+                            <div>O</div>
+                            <div><h3>Stat bonus</h3></div>
+                            <div>O</div>
+                            <div><h3>Stat bonus</h3></div>
+                            <div>O</div>
+                            <div><h3>Stat bonus</h3></div>
+                            <div>O</div>
+                            <div><h3>Stat bonus</h3></div>
+                            <div>O</div>
+                            <div><h3>Stat bonus</h3></div>
+                        </div>
+                        <div className="mid">
+                            <p>
+                                test
+                            </p>                            
+                        </div>
+                        <div className="bottom">
+                            <h4>TEST</h4>
+                        </div>                        
+                    </div>
+                </SavingThrow>
+                <SensesBox>
+                    
+                </SensesBox>
+                <ProficiencyBox>
+
+                </ProficiencyBox>
+                <EquipmentBox>
+
+                </EquipmentBox>
+                
             </CharacterGrid>
         </CharacterWrapper>
     )
