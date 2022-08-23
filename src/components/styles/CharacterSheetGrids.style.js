@@ -11,7 +11,6 @@ const CSHeader = styled.section`
   div.CSHeader2 {
     margin-left: 25px;
   }
-
 `
 
 const StatBox = styled.section`
@@ -79,6 +78,7 @@ const HealthBox = styled.section`
     width: 100px;
     height: 30px;
     text-align: center;
+    white-space: nowrap;
   }
 
   .bottom {
@@ -86,4 +86,57 @@ const HealthBox = styled.section`
   }
 `
 
-export {StatBox, CSHeader, AuxiliaryBox, HealthBox}
+const SavingThrow = styled.section`
+  grid-area: st;
+  margin: 5px 15px;
+  border: 3px double white;
+  display: flex;
+
+  div {
+    width: 300px;
+    height: auto;
+    text-align: center;
+    margin-left: 10px;
+  }
+
+  .top {
+    
+    padding-top: 5px;
+    height: 60%;
+    display: grid;
+    grid-template-columns: 30px 120px 30px 120px;
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+  }
+
+  div > div {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+  }
+`
+
+const SensesBox = styled.section`
+  grid-area: sn;
+  margin: 5px 15px;
+  border: 3px double white;
+`
+
+const ProficiencyBox = styled.section`
+  grid-area: pb;
+  margin: 5px 15px;
+  border: 3px double white;
+`
+
+const EquipmentBox = styled.section`
+  grid-area: eb;
+  margin: 5px;
+  border: 3px double white;
+`
+
+export {StatBox, CSHeader, AuxiliaryBox, HealthBox, SavingThrow, ProficiencyBox, EquipmentBox, SensesBox}
