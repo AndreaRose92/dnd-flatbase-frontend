@@ -15,7 +15,7 @@ const CSHeader = styled.section`
 
 const StatBox = styled.section`
   margin: 5px 15px;
-  border: 3px double white;
+  border: 3px double purple;
   display: flex;
   justify-content: center;
 
@@ -41,7 +41,7 @@ const StatBox = styled.section`
 
 const AuxiliaryBox = styled.section`
   margin: 5px;
-  border: 3px double white;
+  border: 3px double purple;
   display: flex;
   justify-content: center;
 
@@ -67,7 +67,7 @@ const AuxiliaryBox = styled.section`
 const HealthBox = styled.section`
   grid-area: hb;
   margin: 5px;
-  border: 3px double white;
+  border: 3px double purple;
   display: inline-flex;
   flex-direction: row;
   justify-content: center;
@@ -89,7 +89,7 @@ const HealthBox = styled.section`
 const SavingThrow = styled.section`
   grid-area: st;
   margin: 5px 15px;
-  border: 3px double white;
+  border: 3px double purple;
   display: flex;
 
   div {
@@ -124,19 +124,19 @@ const SavingThrow = styled.section`
 const SensesBox = styled.section`
   grid-area: sn;
   margin: 5px 15px;
-  border: 3px double white;
+  border: 3px double purple;
 `
 
 const ProficiencyBox = styled.section`
   grid-area: pb;
   margin: 5px 15px;
-  border: 3px double white;
+  border: 3px double purple;
 `
 
 const EquipmentBox = styled.section`
   grid-area: eb;
   margin: 5px;
-  border: 3px double white;
+  border: 3px double purple;
 `
 
 export {StatBox, CSHeader, AuxiliaryBox, HealthBox, SavingThrow, ProficiencyBox, EquipmentBox, SensesBox}

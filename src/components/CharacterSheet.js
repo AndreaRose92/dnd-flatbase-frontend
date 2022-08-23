@@ -19,7 +19,7 @@ export default function CharacterSheet() {
     // console.log(character)
 
     function statCalculation(num) {
-       let modifier = Math.floor((num - 10) / 2)
+        let modifier = Math.floor((num - 10) / 2)
         if (modifier > 0) {
             return `+${modifier}`
         } else if (modifier < 0) {
