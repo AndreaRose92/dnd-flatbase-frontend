@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { CharacterGrid, CharacterWrapper } from "./styles/MainGrids.style"
-import { StatBox, CSHeader, AuxiliaryBox, HealthBox, SavingThrow, ProficiencyBox, EquipmentBox, SensesBox } from "./styles/CharacterSheetGrids.style"
+import { StatBox, CSHeader, AuxiliaryBox, InspirationBox, HealthBox, SavingThrow, ProficiencyBox, EquipmentBox, SensesBox, InitiativeBox, ArmorClass, DefensesConditions } from "./styles/CharacterSheetGrids.style"
 
 export default function CharacterSheet() {
     const params = useParams()
@@ -9,6 +9,7 @@ export default function CharacterSheet() {
     const [character, setCharacter] = useState({})
     const [race, setRace] = useState({})
     const [klass, setKlass] = useState({})
+    const [isInspired, setIsInspired] = useState(false)
 
     useEffect(() => {
         fetch(`http://localhost:9292/${params.username}/${params.id}`)
@@ -35,6 +36,7 @@ export default function CharacterSheet() {
             return `-${bonus}`
         } else {return 0}
     }
+
 
     return (
         <CharacterWrapper>
@@ -142,6 +144,16 @@ export default function CharacterSheet() {
                         </div>                        
                     </div>
                 </AuxiliaryBox>
+                <InspirationBox>
+                    <div>
+                        <div onClick={() => setIsInspired(isInspired => !isInspired) } className="inspiration-box">
+                            <h1>{isInspired ? '☀︎' : ''}</h1>
+                        </div>
+                        <div className="bottom">
+                            <h4>INSPIRATION</h4>
+                        </div>
+                    </div>
+                </InspirationBox>
                 <HealthBox>
                     <div>
                         <div><p>CURRENT</p></div>
@@ -189,8 +201,41 @@ export default function CharacterSheet() {
                     
                 </SensesBox>
                 <ProficiencyBox>
-
+                    <div className="pro-header">
+                        <p>PROF.</p>
+                        <p>MODIFIER</p>
+                        <p className="skill">SKILL</p>
+                        <p>BONUS</p>
+                    </div>
+                    <div className="pro-grid">
+                        <h4>Test</h4>
+                        <h4>Test</h4>
+                        <h4 className="skill">Test</h4>
+                        <h4>Test</h4>
+                    </div>
                 </ProficiencyBox>
+                <InitiativeBox>
+                    <div>
+                        <div><h4>INITIATIVE</h4></div>
+                        <div className="mid">
+                            
+                        </div>
+                        <div className="bottom">
+                        </div>                        
+                    </div>
+                </InitiativeBox>
+                <ArmorClass>
+                    <div>
+                        <div><p>ARMOR</p></div>
+                        <div className="mid">
+                            <h2></h2>
+                        </div>
+                        <div className="bottom"><p>CLASS</p></div>                        
+                    </div>
+                </ArmorClass>
+                <DefensesConditions>
+
+                </DefensesConditions>
                 <EquipmentBox>
 
                 </EquipmentBox>

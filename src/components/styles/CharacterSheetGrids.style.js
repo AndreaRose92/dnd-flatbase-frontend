@@ -64,6 +64,32 @@ const AuxiliaryBox = styled.section`
   }
 `
 
+const InspirationBox = styled.section`
+  grid-area: in;
+  margin: 5px;
+  
+  div {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+  }
+
+  .inspiration-box {
+    border: 3px double purple;
+    height: 60px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .bottom {
+    padding-top: 12px;
+  }
+`
+
 const HealthBox = styled.section`
   grid-area: hb;
   margin: 5px;
@@ -130,6 +156,70 @@ const SensesBox = styled.section`
 const ProficiencyBox = styled.section`
   grid-area: pb;
   margin: 5px 15px;
+  padding: 5px 10px;
+  border: 3px double purple;
+
+  .pro-header {
+    display: grid;
+    height: 30px;
+    grid-template-columns: 50px 70px 130px 50px;
+    grid-template-rows: 1fr;
+    align-items: center;
+    text-align: center;
+  }
+
+  .skill {
+    padding-left: 5px;
+    text-align: left;
+  }
+
+  .pro-grid {
+    display: grid;
+    height: 30px;
+    grid-template-columns: 50px 70px 130px 50px;
+    grid-template-rows: 1fr;
+    align-items: center;
+    text-align: center;
+  }
+`
+
+const InitiativeBox = styled.section`
+  grid-area: it;
+  margin: 5px;
+
+  div {
+    display: grid;
+    grid-template-rows: 20px 60px 20px;
+    width: 100px;
+    text-align: center;
+  }  
+
+  .mid {
+    border: 3px double purple;
+    height: 50px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`
+
+const ArmorClass = styled.section`
+  grid-area: ac;
+  margin: 5px;
+  border: 3px double purple;
+
+  div {
+    display: grid;
+    grid-template-rows: 1fr;
+    width: 90px;
+    text-align: center;
+  }
+`
+
+const DefensesConditions = styled.section`
+  grid-area: dc;
+  margin: 5px;
   border: 3px double purple;
 `
 
@@ -139,4 +229,4 @@ const EquipmentBox = styled.section`
   border: 3px double purple;
 `
 
-export {StatBox, CSHeader, AuxiliaryBox, HealthBox, SavingThrow, ProficiencyBox, EquipmentBox, SensesBox}
+export {StatBox, CSHeader, AuxiliaryBox, InspirationBox, HealthBox, SavingThrow, ProficiencyBox, EquipmentBox, SensesBox, ArmorClass, DefensesConditions, InitiativeBox}

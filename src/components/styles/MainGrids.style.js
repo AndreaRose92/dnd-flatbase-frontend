@@ -27,7 +27,7 @@ const CharacterGrid = styled.div`
   grid-template-areas: 
   'hd hd hd hd hd hd hd hd hd hd hd hd'
   'sb sb sb sb sb sb ab ab in hb hb hb'
-  'st st st pb pb pb eb eb eb eb eb eb'
+  'st st st pb pb pb it ac dc dc dc dc'
   'st st st pb pb pb eb eb eb eb eb eb'
   'sn sn sn pb pb pb eb eb eb eb eb eb'
   'sn sn sn pb pb pb eb eb eb eb eb eb'
