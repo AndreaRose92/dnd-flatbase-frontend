@@ -16,7 +16,25 @@ export default function CharacterSheet() {
             .then(data=> {setCharacter(data[0]); setRace(data[1]); setKlass(data[2])})
     },[])
 
-    console.log(character, klass, race)
+    // console.log(character)
+
+    function statCalculation(num) {
+       let modifier = Math.floor((num - 10) / 2)
+        if (modifier > 0) {
+            return `+${modifier}`
+        } else if (modifier < 0) {
+            return `-${modifier}`
+        } else {return 0}
+    }
+
+    function proficiencyBonus(num) {
+        let bonus = Math.ceil((1+num)/4)
+        if (bonus > 0) {
+            return `+${bonus}`
+        } else if (bonus < 0) {
+            return `-${bonus}`
+        } else {return 0}
+    }
 
     return (
         <CharacterWrapper>
@@ -35,7 +53,7 @@ export default function CharacterSheet() {
                     <div>
                         <div><p>STRENGTH</p></div>
                         <div className="mid">
-                            <h2>{`+num`}</h2>                            
+                            <h2>{statCalculation(character.str)}</h2>
                         </div>
                         <div className="bottom">
                             <h4>{character.str}</h4>
@@ -46,7 +64,7 @@ export default function CharacterSheet() {
                     <div>
                         <div><p>DEXTERITY</p></div>
                         <div className="mid">
-                            <h2>{`+num`}</h2>                            
+                        <h2>{statCalculation(character.dex)}</h2>    
                         </div>
                         <div className="bottom">
                             <h4>{character.dex}</h4>
@@ -57,7 +75,7 @@ export default function CharacterSheet() {
                     <div>
                         <div><p>CONSTITUTION</p></div>
                         <div className="mid">
-                            <h2>{`+num`}</h2>                            
+                            <h2>{statCalculation(character.con)}</h2>
                         </div>
                         <div className="bottom">
                             <h4>{character.con}</h4>
@@ -68,7 +86,7 @@ export default function CharacterSheet() {
                     <div>
                         <div><p>INTELLIGENCE</p></div>
                         <div className="mid">
-                            <h2>{`+num`}</h2>                            
+                            <h2>{statCalculation(character.int)}</h2>          
                         </div>
                         <div className="bottom">
                             <h4>{character.int}</h4>
@@ -79,7 +97,7 @@ export default function CharacterSheet() {
                     <div>
                         <div><p>WISDOM</p></div>
                         <div className="mid">
-                            <h2>{`+num`}</h2>                            
+                            <h2>{statCalculation(character.wis)}</h2>          
                         </div>
                         <div className="bottom">
                             <h4>{character.wis}</h4>
@@ -90,7 +108,7 @@ export default function CharacterSheet() {
                     <div>
                         <div><p>CHARISMA</p></div>
                         <div className="mid">
-                            <h2>{`+num`}</h2>                            
+                            <h2>{statCalculation(character.cha)}</h2>          
                         </div>
                         <div className="bottom">
                             <h4>{character.cha}</h4>
@@ -116,7 +134,7 @@ export default function CharacterSheet() {
                         <div><p>PROFICIENCY</p></div>
                         <div className="mid">
                             <h2>
-                                {race.speed}
+                                {proficiencyBonus(character.level)}
                             </h2>                            
                         </div>
                         <div className="bottom">
