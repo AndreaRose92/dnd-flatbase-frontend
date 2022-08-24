@@ -12,6 +12,13 @@ const ContentWrapper = styled.div`
   grid-row: 2;
 `
 
+const PlayerGrid = styled.div`
+  margin: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px;
+`
+
 const CharacterWrapper = styled.div`
   margin: 25px;
   display: grid;
@@ -35,5 +42,5 @@ const CharacterGrid = styled.div`
   gap: 10px;
 `
 
-export {ContentWrapper, CharacterWrapper, CharacterGrid}
+export {ContentWrapper, CharacterWrapper, CharacterGrid, PlayerGrid}
 export default PageWrapper

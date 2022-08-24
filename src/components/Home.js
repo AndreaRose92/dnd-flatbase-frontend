@@ -1,6 +1,9 @@
 // import { useEffect, useState } from "react"
 import { Link } from 'react-router-dom'
-// import PlayerCard from './PlayerCard'
+import PlayerCard from './PlayerCard'
+
+import { PlayerGrid } from './styles/MainGrids.style'
+import { CardBox } from './styles/Cards.style'
 
 const Home = ({players, setCharacters}) => {
   
@@ -13,16 +16,16 @@ const Home = ({players, setCharacters}) => {
 
   const renderPlayers = players.map(player => {
     return (
-      <Link  key={player.id}  to={`/${player.username}`}>
-        <h2 onClick={()=>fetchCharacters(player.username)} >{player.username}</h2>
-      </Link>
+      <CardBox as={Link}  to={`/${player.username}`} key={player.id}>
+        <PlayerCard onClick={()=>fetchCharacters(player.username)} username={player.username} />
+      </CardBox>
     )
   })
 
   return(
-    <div>
+    <PlayerGrid>
       {renderPlayers}
-    </div>
+    </PlayerGrid>
   )
 }
 
