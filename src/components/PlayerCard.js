@@ -1,12 +1,17 @@
 // import { Link } from "react-router-dom"
-import Card from './styles/Cards.style'
+import Card, { InnerCardGrid, TopSection } from './styles/Cards.style'
 
 
 export default function PlayerCard({username}) {
     return(
         <Card>
-            <img alt='User avatar'/>
-            <h2>{username}</h2>
+            <InnerCardGrid>
+                <TopSection>
+                    <img alt='User avatar'/><br/>
+                    <h2>{username}</h2>
+                </TopSection>
+                <div></div>
+            </InnerCardGrid>
         </Card>
     )
 }
