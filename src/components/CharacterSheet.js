@@ -197,7 +197,7 @@ export default function CharacterSheet() {
                             </p>                            
                         </div>
                         <div className="bottom">
-                            <h4>TEST</h4>
+                            <h4>SAVING THROWS</h4>
                         </div>                        
                     </div>
                 </SavingThrow>

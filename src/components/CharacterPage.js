@@ -35,7 +35,7 @@ export default function CharacterPage() {
             <Card as={Link} to={`/${params.username}/new-character`}>
                 <InnerCardGrid>
                     <TopSection>
-                        <img alt='New character plus sign'/><br/>
+                        <img src="../images/plus.png" alt='New character plus sign'/><br/>
                         <h2>New Character</h2>
                     </TopSection>
                     <div>
