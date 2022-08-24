@@ -17,14 +17,14 @@ export default function CharacterSheet() {
             .then(data=> {setCharacter(data[0]); setRace(data[1]); setKlass(data[2])})
     },[])
 
-    // console.log(character)
+    console.log(character)
 
     function statCalculation(num) {
         let modifier = Math.floor((num - 10) / 2)
         if (modifier > 0) {
             return `+${modifier}`
         } else if (modifier < 0) {
-            return `-${modifier}`
+            return `${modifier}`
         } else {return 0}
     }
 
@@ -226,9 +226,9 @@ export default function CharacterSheet() {
                 </InitiativeBox>
                 <ArmorClass>
                     <div>
-                        <div><p>ARMOR</p></div>
+                        <div className="top"><p>ARMOR</p></div>
                         <div className="mid">
-                            <h2></h2>
+                            <h2>{10 + parseInt(statCalculation(character.dex))}</h2>
                         </div>
                         <div className="bottom"><p>CLASS</p></div>                        
                     </div>

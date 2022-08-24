@@ -211,9 +211,27 @@ const ArmorClass = styled.section`
 
   div {
     display: grid;
-    grid-template-rows: 1fr;
+    grid-template-rows: 30px;
     width: 90px;
     text-align: center;
+  }
+
+  .top {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .mid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bottom {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
   }
 `
 
