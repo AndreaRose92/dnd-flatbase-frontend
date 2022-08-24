@@ -15,7 +15,7 @@ export default function CharacterSheet() {
         fetch(`http://localhost:9292/${params.username}/${params.id}`)
             .then(r=>r.json())
             .then(data=> {setCharacter(data[0]); setRace(data[1]); setKlass(data[2])})
-    },[])
+    },[params.username, params.id])
 
     function statCalculation(num) {
         let modifier = Math.floor((num - 10) / 2)
