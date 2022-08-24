@@ -4,12 +4,14 @@ import { Link, useParams, Route, useRouteMatch} from "react-router-dom"
 // import CreateCharacter from './CreateCharacter';
 import CharCard from "./CharCard"
 // import CharacterSheet from './CharacterSheet'
+import { PlayerGrid } from "./styles/MainGrids.style"
+import Card, { InnerCardGrid, TopSection } from "./styles/Cards.style"
 
 export default function CharacterPage() {
     const params = useParams()
     const match = useRouteMatch()
     
-  const [characters, setCharacters] = useState([])
+    const [characters, setCharacters] = useState([])
 
     useEffect(()=>{
         fetch(`http://localhost:9292/${params.username}`)
@@ -24,9 +26,18 @@ export default function CharacterPage() {
     })
 
     return (
-        <div>
+        <PlayerGrid>
             {renderCharacters}
-            <Link to={`/${params.username}/new-character`}>New Character</Link>
-        </div>
+            <Card as={Link} to={`/${params.username}/new-character`}>
+                <InnerCardGrid>
+                    <TopSection>
+                        <img alt='New character plus sign'/><br/>
+                        <h2>New Character</h2>
+                    </TopSection>
+                    <div>
+                    </div>
+                </InnerCardGrid>
+            </Card>
+        </PlayerGrid>
     )    
 }
