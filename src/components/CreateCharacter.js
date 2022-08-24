@@ -5,6 +5,8 @@ export default function CreateCharacter() {
     const params = useParams()
     const history = useHistory()
 
+    let username = params.username
+
     const [newCharacter, setNewCharacter] = useState({
         name: '',
         level: 0,
@@ -14,7 +16,7 @@ export default function CreateCharacter() {
         int: 0,
         wis: 0,
         cha: 0,
-        player: ``,
+        player: username,
         klass: '',
         race: ''
     })
@@ -22,23 +24,22 @@ export default function CreateCharacter() {
     const handleInput = (e) => {
         let formName = e.target.name
         let formValue = e.target.value
-        console.log(`${formName}: ${formValue}`)
         setNewCharacter({
             ...newCharacter,
             [formName]: formValue
         })
+        console.log(`${formName}: ${formValue}`)
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(newCharacter)
-        fetch(`http://localhost:9292/${params.username}/new-character`, {
+        fetch(`http://localhost:9292/${username}/new-character`, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({newCharacter})
         })
-            .then(r=>r.json())
-            .then(data=>console.log(data))
+        .then(r=>r.json())
+        .then(()=>history.push(`/${username}`))
         setNewCharacter({
             name: '',
             level: 0,
@@ -48,7 +49,7 @@ export default function CreateCharacter() {
             int: 0,
             wis: 0,
             cha: 0,
-            player: `${params.username}`,
+            player: '',
             klass: '',
             race: ''
         })
@@ -61,6 +62,8 @@ export default function CreateCharacter() {
             <form className='newCharacter' onSubmit={(e)=>handleSubmit(e)}>
                 <h1>Character Builder</h1>
                 <div>
+                    {/* <label htmlFor='player'>Player:</label>
+                    <input type="text" name="player" onChange={handleInput}/><br/> */}
                     <label htmlFor='name'>Name:</label>
                     <input type="text" name="name" onChange={handleInput}/><br/>
                     {/* <label htmlFor='image'>Image:</label>
@@ -80,7 +83,7 @@ export default function CreateCharacter() {
                     <label htmlFor='cha'>Charisma:</label>
                     <input type="number" name="cha" onChange={handleInput}/><br/>
                     <label htmlFor='class'>Class:</label>
-                    <select onChange={handleInput}>
+                    <select name="klass" onChange={handleInput}>
                         <option name="Barbarian">Barbarian</option>
                         <option name="Bard">Bard</option>
                         <option name="Cleric">Cleric</option>
@@ -95,7 +98,7 @@ export default function CreateCharacter() {
                         <option name="Wizard">Wizard</option>
                     </select><br/>
                     <label htmlFor='race'>Race:</label>
-                    <select onChange={handleInput}>
+                    <select name="race" onChange={handleInput}>
                         <option name="Dragonborn">Dragonborn</option>
                         <option name="Dwarf">Dwarf</option>
                         <option name="Elf">Elf</option>
