@@ -30,11 +30,11 @@ const StatBox = styled.section`
   .mid {
     display: inline-flex;
     justify-content: center;
-    align-items: baseline;
+    align-items: center;
   }
 
   .bottom {
-    padding-top: 15px;
+    padding-top: 10px;
   }
   
 `
@@ -56,11 +56,11 @@ const AuxiliaryBox = styled.section`
   .mid {
     display: inline-flex;
     justify-content: center;
-    align-items: baseline;
+    align-items: center;
   }
 
   .bottom {
-    padding-top: 15px;
+    padding-top: 10px;
   }
 `
 
@@ -81,8 +81,14 @@ const HealthBox = styled.section`
     white-space: nowrap;
   }
 
+  .mid {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .bottom {
-    padding-top: 15px;
+    padding-top: 10px;
   }
 `
 

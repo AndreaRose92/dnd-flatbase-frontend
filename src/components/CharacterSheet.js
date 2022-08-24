@@ -17,6 +17,15 @@ export default function CharacterSheet() {
     },[])
 
     // console.log(character)
+    // const stats = {
+    //     str: character.str,
+    //     dex: character.dex,
+    //     con: character.con,
+    //     int: character.int,
+    //     wis: character.wis,
+    //     cha: character.cha
+    // }
+
 
     function statCalculation(num) {
         let modifier = Math.floor((num - 10) / 2)
@@ -35,6 +44,16 @@ export default function CharacterSheet() {
             return `-${bonus}`
         } else {return 0}
     }
+
+
+    function skillProficiency(prof, stat, lvl) {
+        // if proficient = true ? stat + proficiency : stat
+        let total
+        prof ? total = `+${parseInt(statCalculation(stat)) + parseInt(proficiencyBonus(lvl))}` : total = statCalculation(stat)
+        return total
+    }
+
+
 
     return (
         <CharacterWrapper>
@@ -145,35 +164,35 @@ export default function CharacterSheet() {
                 <HealthBox>
                     <div>
                         <div><p>CURRENT</p></div>
-                        <div><h2>42</h2></div>
+                        <div className="mid"><h2>42</h2></div>
                     </div>
                     <div>
                         <div><p>MAXIMUM</p></div>
-                        <div><h2>42</h2></div>
+                        <div className="mid"><h2>42</h2></div>
                         <div className="bottom">
                             <h4>{'HEALTH & STATUS'}</h4>
                         </div>
                     </div>
                     <div>
                         <div><p>TEMPORARY</p></div>
-                        <div><h2>42</h2></div>
+                        <div className="mid"><h2>42</h2></div>
                     </div>
                 </HealthBox>
                 <SavingThrow>
                     <div>
                         <div className="top">
-                            <div>O</div>
-                            <div><h3>Stat bonus</h3></div>
-                            <div>O</div>
-                            <div><h3>Stat bonus</h3></div>
-                            <div>O</div>
-                            <div><h3>Stat bonus</h3></div>
-                            <div>O</div>
-                            <div><h3>Stat bonus</h3></div>
-                            <div>O</div>
-                            <div><h3>Stat bonus</h3></div>
-                            <div>O</div>
-                            <div><h3>Stat bonus</h3></div>
+                            <div><div>0</div></div>
+                            <div><h3>{`Str ${skillProficiency(true, character.str, character.level)}`}</h3></div>
+                            <div><div>0</div></div>
+                            <div><h3>{`Int ${skillProficiency(false, character.int, character.level)}`}</h3></div>
+                            <div><div>0</div></div>
+                            <div><h3>{`Dex ${skillProficiency(true, character.dex, character.level)}`}</h3></div>
+                            <div><div>0</div></div>
+                            <div><h3>{`Wis ${skillProficiency(true, character.wis, character.level)}`}</h3></div>
+                            <div><div>0</div></div>
+                            <div><h3>{`Con ${skillProficiency(true, character.con, character.level)}`}</h3></div>
+                            <div><div>0</div></div>
+                            <div><h3>{`Con ${skillProficiency(true, character.cha, character.level)}`}</h3></div>
                         </div>
                         <div className="mid">
                             <p>
