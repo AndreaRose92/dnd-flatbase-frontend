@@ -3,9 +3,14 @@ import { Link, useParams } from "react-router-dom"
 import Card, { InnerCardGrid, TopSection } from './styles/Cards.style'
 
 
-export default function CharCard({ character }) {
+export default function CharCard({ character, handleDelete }) {
 
     const params=useParams()
+
+    const deleteCharacter = () => {
+        fetch(`http://localhost:9292/${params.username}/${character.id}`, {method: "DELETE"})
+        .then(()=>handleDelete(character.id))
+    }
 
     return (
         <Card>
@@ -16,7 +21,7 @@ export default function CharCard({ character }) {
                 </TopSection>            
                 <div className="bottom">
                     <button></button>
-                    <button></button>
+                    <button onClick={deleteCharacter}></button>
                 </div>
             </InnerCardGrid>
         </Card>

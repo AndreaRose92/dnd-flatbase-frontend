@@ -19,9 +19,13 @@ export default function CharacterPage() {
             .then(data=>setCharacters(data))
     }, [])
     
+    const handleDelete = (i) => {
+        setCharacters(characters => characters.filter(c => c.id !== i))
+    }
+
     const renderCharacters = characters.map(character => {
         return (
-            <CharCard key={character.id} character={character} /> 
+            <CharCard key={character.id} character={character} handleDelete={handleDelete}/> 
         )
     })
 
