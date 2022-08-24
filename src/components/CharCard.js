@@ -20,7 +20,9 @@ export default function CharCard({ character, handleDelete }) {
                     <h2>{character.name}</h2>
                 </TopSection>            
                 <div className="bottom">
-                    <button></button>
+                    <Link to={`/${params.username}/${character.id}/edit`}>
+                        <button></button>    
+                    </Link>                    
                     <button onClick={deleteCharacter}></button>
                 </div>
             </InnerCardGrid>

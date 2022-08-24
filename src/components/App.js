@@ -8,6 +8,7 @@ import Home from './Home'
 import NavBar from './NavBar'
 
 import PageWrapper, { ContentWrapper } from "./styles/MainGrids.style"
+import EditCharacter from './EditCharacter.js';
 
 function App() {
 
@@ -33,6 +34,9 @@ function App() {
           </Route>
           <Route exact path="/:username/new-character">
             <CreateCharacter />
+          </Route>
+          <Route exact path={`/:username/:id/edit`}>
+            <EditCharacter />
           </Route>
           <Route exact path={`/:username/:id`}>
             <CharacterSheet />

@@ -1,21 +1,62 @@
+
+
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useHistory } from "react-router-dom"
 import { CharacterGrid, CharacterWrapper } from "./styles/MainGrids.style"
 import { StatBox, CSHeader, AuxiliaryBox, InspirationBox, HealthBox, SavingThrow, ProficiencyBox, EquipmentBox, SensesBox, InitiativeBox, ArmorClass, DefensesConditions } from "./styles/CharacterSheetGrids.style"
 
-export default function CharacterSheet() {
+export default function EditCharacter() {
     const params = useParams()
 
-    const [isInspired, setIsInspired] = useState(false)
+    const history = useHistory()
+
     const [character, setCharacter] = useState({})
     const [race, setRace] = useState({})
     const [klass, setKlass] = useState({})
+    const [isInspired, setIsInspired] = useState(false)
 
     useEffect(() => {
         fetch(`http://localhost:9292/${params.username}/${params.id}`)
             .then(r=>r.json())
             .then(data=> {setCharacter(data[0]); setRace(data[1]); setKlass(data[2])})
     },[params.username, params.id])
+
+    let username = params.username
+
+    const [updatedCharacter, setUpdatedCharacter] = useState({
+        name: character.name,
+        level: character.level,
+        str: character.str,
+        dex: character.dex,
+        con: character.con,
+        int: character.int,
+        wis: character.wis,
+        cha: character.cha,
+        player: username,
+        klass: klass.name,
+        race: race.name
+    })
+
+    const handleInput = (e) => {
+        let formName = e.target.name
+        let formValue = e.target.value
+        setUpdatedCharacter({
+            ...updatedCharacter,
+            [formName]: formValue
+        })
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        fetch(`http://localhost:9292/${username}/${character.id}/edit`, {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({updatedCharacter})
+        })
+        .then(r=>r.json())
+        .then(()=>history.push(`/${username}/${character.id}`))
+        setUpdatedCharacter(updatedCharacter)
+    }
 
     function statCalculation(num) {
         let modifier = Math.floor((num - 10) / 2)
