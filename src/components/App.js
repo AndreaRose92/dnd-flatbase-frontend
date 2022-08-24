@@ -26,7 +26,7 @@ function App() {
       <ContentWrapper>
         <Switch>          
           <Route exact path="/">
-            <Home players={players}/>
+            <Home players={players} setPlayers={setPlayers}/>
           </Route>
           <Route exact path='/:username'>
             <CharacterPage players={players}/>
