@@ -28,6 +28,7 @@ const Home = ({players, setPlayers}) => {
     })
       .then(r=>r.json())
       .then(data=>setPlayers(players => [...players, data]))
+    setNewPlayer('')
   }
 
   const renderPlayers = players.map(player => {
@@ -47,7 +48,7 @@ const Home = ({players, setPlayers}) => {
             <img alt='New player plus sign'/><br/>
             <form onSubmit={handleSubmit}>
               <label htmlFor="newPlayer">New Player:</label>
-              <input type="text" name="newPlayer" onChange={handleInput} />
+              <input type="text" name="newPlayer" value={newPlayer} onChange={handleInput} />
               <input type="submit" />
             </form>
           </TopSection>

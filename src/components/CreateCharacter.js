@@ -84,6 +84,7 @@ export default function CreateCharacter() {
                     <input type="number" name="cha" onChange={handleInput}/><br/>
                     <label htmlFor='class'>Class:</label>
                     <select name="klass" onChange={handleInput}>
+                        <option name="Default">---</option>
                         <option name="Barbarian">Barbarian</option>
                         <option name="Bard">Bard</option>
                         <option name="Cleric">Cleric</option>
@@ -99,6 +100,7 @@ export default function CreateCharacter() {
                     </select><br/>
                     <label htmlFor='race'>Race:</label>
                     <select name="race" onChange={handleInput}>
+                        <option name="Default">---</option>
                         <option name="Dragonborn">Dragonborn</option>
                         <option name="Dwarf">Dwarf</option>
                         <option name="Elf">Elf</option>
