@@ -1,19 +1,31 @@
-// import { useEffect, useState } from "react"
-import { Link, useParams, Route, useRouteMatch} from "react-router-dom"
-// import PlayerCard from './PlayerCard'
-import CharacterSheet from './CharacterSheet';
-import CreateCharacter from './CreateCharacter';
+import { useState } from "react";
+import { Link, useHistory } from "react-router-dom"
 
-const Home = ({players}) => {
+const Home = ({players, setPlayers}) => {
 
-  const match = useRouteMatch()
-  
+  const history = useHistory()
+  const [newPlayer, setNewPlayer] = useState('')
 
-  // const fetchCharacters = (r) => {
-  //   fetch(`http://localhost:9292/${r}`)
-  //     .then(r=>r.json())
-  //     .then(data=>setCharacters(data))
-  // }
+  const handleInput = (e) => {
+    let formName = e.target.name
+    let formValue = e.target.value
+    setNewPlayer(formValue)
+    console.log(`${formName}: ${formValue}`)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    fetch(`http://localhost:9292/new-player`, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+        username: newPlayer
+      })
+    })
+      .then(r=>r.json())
+      .then(data=>setPlayers(players => [...players, data]))
+  }
+
 
   const renderPlayers = players.map(player => {
     return (
@@ -29,6 +41,11 @@ const Home = ({players}) => {
   return(
     <div>
       {renderPlayers}
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="newPlayer">New Player:</label>
+        <input type="text" name="newPlayer" onChange={handleInput} />
+      <input type="submit" />
+      </form>
     </div>
   )
 }
