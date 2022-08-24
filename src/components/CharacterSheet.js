@@ -32,7 +32,7 @@ export default function CharacterSheet() {
         if (modifier > 0) {
             return `+${modifier}`
         } else if (modifier < 0) {
-            return `-${modifier}`
+            return `${modifier}`
         } else {return 0}
     }
 
@@ -164,18 +164,18 @@ export default function CharacterSheet() {
                 <HealthBox>
                     <div>
                         <div><p>CURRENT</p></div>
-                        <div className="mid"><h2>42</h2></div>
+                        <div className="mid"><h2>{character.hp}</h2></div>
                     </div>
                     <div>
                         <div><p>MAXIMUM</p></div>
-                        <div className="mid"><h2>42</h2></div>
+                        <div className="mid"><h2>{character.hp}</h2></div>
                         <div className="bottom">
                             <h4>{'HEALTH & STATUS'}</h4>
                         </div>
                     </div>
                     <div>
                         <div><p>TEMPORARY</p></div>
-                        <div className="mid"><h2>42</h2></div>
+                        <div className="mid"><h2>{'--'}</h2></div>
                     </div>
                 </HealthBox>
                 <SavingThrow>
