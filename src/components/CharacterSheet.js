@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { CharacterGrid, CharacterWrapper } from "./styles/MainGrids.style"
-import { StatBox, CSHeader, AuxiliaryBox, InspirationBox, HealthBox, SavingThrow, ProficiencyBox, EquipmentBox, SensesBox, InitiativeBox, ArmorClass, DefensesConditions } from "./styles/CharacterSheetGrids.style"
+import { StatBox, CSHeader, AuxiliaryBox, InspirationBox, HealthBox, SavingThrow, ProficiencyBox, EquipmentBox, SensesBox, InitiativeBox, ArmorClass, DefensesConditions, EquipmentWrap } from "./styles/CharacterSheetGrids.style"
+import { Button } from './styles/Cards.style'
 
 export default function CharacterSheet() {
     const params = useParams()
@@ -12,6 +13,7 @@ export default function CharacterSheet() {
     const [klass, setKlass] = useState({})
     const [charSkills, setCharSkills] = useState([''])
     const [spells, setSpells] = useState([])
+    const [eqBoxSelected, setEqBoxSelected] = useState("spells")
     
     const skills = [{name: 'Acrobatics', stat: 'dex'}, {name: 'Animal Handling', stat: 'wis'}, {name: 'Arcana', stat: 'int'}, {name: 'Athletics', stat: 'str'}, {name: 'Deception', stat: 'cha'}, {name: 'History', stat: 'int'}, {name: 'Insight', stat: 'wis'}, {name: 'Intimidation', stat: 'cha'}, {name: 'Investigation', stat: 'int'}, {name: 'Medicine', stat: 'wis'}, {name: 'Nature', stat: 'int'}, {name: 'Perception', stat: 'wis'}, {name: 'Performance', stat: 'cha'}, {name: 'Persuasion', stat: 'cha'}, {name: 'Religion', stat: 'int'}, {name: 'Sleight of Hand', stat: 'dex'}, {name: 'Stealth', stat: 'dex'}, {name: 'Survival', stat: 'wis'}]
 
@@ -20,7 +22,6 @@ export default function CharacterSheet() {
             .then(r=>r.json())
             .then(data=> {setCharacter(data[0]); setRace(data[1]); setKlass(data[2]); setCharSkills(charSkills => data[3].flatMap(skill => skill)); setSpells(data[4])})
     },[params.username, params.id])
-    console.log(charSkills)
 
     function statCalculation(num) {
         let modifier = Math.floor((num - 10) / 2)
@@ -41,7 +42,6 @@ export default function CharacterSheet() {
     }
 
     function skillProficiency(prof, stat, lvl) {
-        // if proficient = true ? stat + proficiency : stat
         let total
         prof ? total = `+${parseInt(statCalculation(stat)) + parseInt(proficiencyBonus(lvl))}` : total = statCalculation(stat)
         return total
@@ -67,6 +67,116 @@ export default function CharacterSheet() {
             </>
         )
     })
+
+    const handleEquipmentBoxClick = (e) => {
+        console.log(e.target.value)
+        switch (e.target.value) {
+            case 'spells':
+                setEqBoxSelected('spells')
+                break;
+            case 'actions':
+                setEqBoxSelected('actions')
+                break;
+            case 'equipment':
+                setEqBoxSelected('equipment')
+                break;
+            case 'traits':
+                setEqBoxSelected('traits')
+                break;
+            case 'extras':
+                setEqBoxSelected('extras')
+                break;
+            default:
+                setEqBoxSelected('spells')
+                
+        }
+    }
+
+    const renderEqBoxType = () => {
+        if(eqBoxSelected === 'spells') {
+            return (
+                <EquipmentWrap>
+                    <div className="eq-header">
+                        <p>LEVEL</p>                        
+                        <p>SKILL</p>
+                        <p>TIME</p>
+                        <p>RANGE</p>
+                    </div>
+                    <div className="eq-bottom">
+                        <div className="eq-grid">{renderSpells}</div>
+                    </div>
+                </EquipmentWrap>
+            )
+        } else if (eqBoxSelected === 'actions') {
+            return (
+                <EquipmentWrap>
+                    <div className="eq-header">
+                        <p></p>                        
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                    <div className="eq-bottom">
+                        <div className="eq-grid">
+                            <div></div>
+                            <h2>Coming Soon...</h2>
+                        </div>
+                    </div>
+                </EquipmentWrap>
+            )
+        } else if (eqBoxSelected === 'equipment') {
+            return (
+                <EquipmentWrap>
+                    <div className="eq-header">
+                        <p></p>                        
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                    <div className="eq-bottom">
+                        <div className="eq-grid">
+                            <div></div>
+                            <h2>Coming Soon...</h2>
+                        </div>
+                    </div>
+                </EquipmentWrap>
+            )
+        } else if (eqBoxSelected === 'traits') {
+            return (
+                <EquipmentWrap>
+                    <div className="eq-header">
+                        <p></p>                        
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                    <div className="eq-bottom">
+                        <div className="eq-grid">
+                            <div></div>
+                            <h2>Coming Soon...</h2>
+                        </div>
+                    </div>
+                </EquipmentWrap>
+            )
+        } else if (eqBoxSelected === 'extras') {
+            return (
+                <EquipmentWrap>
+                    <div className="eq-header">
+                        <p></p>                        
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                    <div className="eq-bottom">
+                        <div className="eq-grid">
+                            <div></div>
+                            <h2>Coming Soon...</h2>
+                        </div>
+                    </div>
+                </EquipmentWrap>
+            )
+        }
+    }
 
     return (
         <CharacterWrapper>
@@ -262,13 +372,14 @@ export default function CharacterSheet() {
 
                 </DefensesConditions>
                 <EquipmentBox>
-                <div className="pro-header">
-                        <p>LEVEL</p>                        
-                        <p className="skill">SKILL</p>
-                        <p>TIME</p>
-                        <p>RANGE</p>
+                    <div className="eq-box-header">
+                        <Button onClick={handleEquipmentBoxClick} value='spells'>SPELLS</Button>
+                        <Button onClick={handleEquipmentBoxClick} value='actions'>ACTIONS</Button>
+                        <Button onClick={handleEquipmentBoxClick} value='equipment'>EQUIPMENT</Button>
+                        <Button onClick={handleEquipmentBoxClick} value='traits'>TRAITS</Button>
+                        <Button onClick={handleEquipmentBoxClick} value='extras'>EXTRAS</Button>
                     </div>
-                    <div className="pro-grid">{renderSpells}</div>
+                    {renderEqBoxType()}
                 </EquipmentBox>
                 
             </CharacterGrid>

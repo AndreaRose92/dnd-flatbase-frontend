@@ -286,28 +286,53 @@ const EquipmentBox = styled.section`
   background: radial-gradient(farthest-corner at 40px 40px,
     #fff 0%, #aaa9ad 100%);
 
-  .pro-header {
+  .eq-box-header {
+    display: flex;
+    width: 400px;
+    justify-content: space-evenly;
+    margin-right: 20px;
+  }
+`
+
+const EquipmentWrap = styled.nav`
+  height: 300px;
+  overflow-y: auto;
+  
+  ::-webkit-scrollbar {
+    background-color: #141311;
+  }
+
+  ::-webkit-scrollbar-track {
+  background: #aaa9ad;
+}
+
+::-webkit-scrollbar-thumb {
+  background: radial-gradient(farthest-corner at 0px 0px,
+    #fff 0%, #d4af37 100%);;
+  border: 2px ridge #d4af37;
+}
+
+  .eq-header {
     display: grid;
     height: 30px;
-    grid-template-columns: 50px 150px 50px 50px;
+    grid-template-columns: 50px 150px 80px 50px;
     grid-template-rows: 1fr;
     align-items: center;
     text-align: center;
   }
 
-  .skill {
-    padding-left: 5px;
-    text-align: left;
+  .eq-bottom {
+
   }
 
-  .pro-grid {
+  .eq-grid {
     display: grid;
     height: 30px;
-    grid-template-columns: 50px 150px 50px 50px;
+    grid-template-columns: 50px 150px 80px 50px;
     grid-template-rows: 1fr;
     align-items: center;
     text-align: center;
   }
 `
 
-export {StatBox, CSHeader, AuxiliaryBox, InspirationBox, HealthBox, SavingThrow, ProficiencyBox, EquipmentBox, SensesBox, ArmorClass, DefensesConditions, InitiativeBox}
+export {StatBox, CSHeader, AuxiliaryBox, InspirationBox, HealthBox, SavingThrow, ProficiencyBox, EquipmentBox, EquipmentWrap, SensesBox, ArmorClass, DefensesConditions, InitiativeBox}
