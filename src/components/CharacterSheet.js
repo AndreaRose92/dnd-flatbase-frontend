@@ -20,7 +20,7 @@ export default function CharacterSheet() {
             .then(r=>r.json())
             .then(data=> {setCharacter(data[0]); setRace(data[1]); setKlass(data[2]); setCharSkills(charSkills => data[3].flatMap(skill => skill)); setSpells(data[4])})
     },[params.username, params.id])
-    console.log(spells)
+    console.log(charSkills)
 
     function statCalculation(num) {
         let modifier = Math.floor((num - 10) / 2)
@@ -47,12 +47,13 @@ export default function CharacterSheet() {
         return total
     }
 
+
     const renderSkills = skills.map(skill => {
             return (<>
-                <h3>0</h3>
+                <h3>{charSkills.includes(skill.name) ? "✅" : "❌"}</h3>
                 <h3>{skill.stat}</h3>
                 <h3 className="skill">{skill.name}</h3>
-                <h3>{skillProficiency(false, character[skill.stat], character.level)}</h3>
+                <h3>{skillProficiency(charSkills.includes(skill.name), character[skill.stat], character.level)}</h3>
             </>)
         })
 
@@ -240,7 +241,7 @@ export default function CharacterSheet() {
                     <div>
                         <div><h4>INITIATIVE</h4></div>
                         <div className="mid">
-                            
+                            <h2>{statCalculation(character.dex)}</h2>
                         </div>
                         <div className="bottom">
                         </div>                        
