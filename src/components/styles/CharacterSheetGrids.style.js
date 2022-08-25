@@ -112,7 +112,7 @@ const HealthBox = styled.section`
 
   div {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows:git 1fr 1fr 1fr;
     width: 100px;
     height: 30px;
     text-align: center;
