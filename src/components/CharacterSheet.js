@@ -10,14 +10,14 @@ export default function CharacterSheet() {
     const [character, setCharacter] = useState({})
     const [race, setRace] = useState({})
     const [klass, setKlass] = useState({})
-    const [charSkills, setCharSkills] = useState([['',''], ['']])
+    const [charSkills, setCharSkills] = useState([''])
     
     const skills = [{name: 'Acrobatics', stat: 'dex'}, {name: 'Animal Handling', stat: 'wis'}, {name: 'Arcana', stat: 'int'}, {name: 'Athletics', stat: 'str'}, {name: 'Deception', stat: 'cha'}, {name: 'History', stat: 'int'}, {name: 'Insight', stat: 'wis'}, {name: 'Intimidation', stat: 'cha'}, {name: 'Investigation', stat: 'int'}, {name: 'Medicine', stat: 'wis'}, {name: 'Nature', stat: 'int'}, {name: 'Perception', stat: 'wis'}, {name: 'Performance', stat: 'cha'}, {name: 'Persuasion', stat: 'cha'}, {name: 'Religion', stat: 'int'}, {name: 'Sleight of Hand', stat: 'dex'}, {name: 'Stealth', stat: 'dex'}, {name: 'Survival', stat: 'wis'}]
 
     useEffect(() => {
         fetch(`http://localhost:9292/${params.username}/${params.id}`)
             .then(r=>r.json())
-            .then(data=> {setCharacter(data[0]); setRace(data[1]); setKlass(data[2]); setCharSkills(data[3])})
+            .then(data=> {setCharacter(data[0]); setRace(data[1]); setKlass(data[2]); setCharSkills(charSkills => data[3].flatMap(skill => skill))})
     },[params.username, params.id])
 
     function statCalculation(num) {
@@ -191,17 +191,17 @@ export default function CharacterSheet() {
                     <div>
                         <div className="top">
                             <div><div>0</div></div>
-                            <div><h3>{`Str ${skillProficiency(charSkills[0].includes("Str Save"), character.str, character.level)}`}</h3></div>
+                            <div><h3>{`Str ${skillProficiency(charSkills.includes("Str Save"), character.str, character.level)}`}</h3></div>
                             <div><div>0</div></div>
-                            <div><h3>{`Int ${skillProficiency(charSkills[0].includes("Int Save"), character.int, character.level)}`}</h3></div>
+                            <div><h3>{`Int ${skillProficiency(charSkills.includes("Int Save"), character.int, character.level)}`}</h3></div>
                             <div><div>0</div></div>
-                            <div><h3>{`Dex ${skillProficiency(charSkills[0].includes("Dex Save"), character.dex, character.level)}`}</h3></div>
+                            <div><h3>{`Dex ${skillProficiency(charSkills.includes("Dex Save"), character.dex, character.level)}`}</h3></div>
                             <div><div>0</div></div>
-                            <div><h3>{`Wis ${skillProficiency(charSkills[0].includes("Wis Save"), character.wis, character.level)}`}</h3></div>
+                            <div><h3>{`Wis ${skillProficiency(charSkills.includes("Wis Save"), character.wis, character.level)}`}</h3></div>
                             <div><div>0</div></div>
-                            <div><h3>{`Con ${skillProficiency(charSkills[0].includes("Con Save"), character.con, character.level)}`}</h3></div>
+                            <div><h3>{`Con ${skillProficiency(charSkills.includes("Con Save"), character.con, character.level)}`}</h3></div>
                             <div><div>0</div></div>
-                            <div><h3>{`Cha ${skillProficiency(charSkills[0].includes("Cha Save"), character.cha, character.level)}`}</h3></div>
+                            <div><h3>{`Cha ${skillProficiency(charSkills.includes("Cha Save"), character.cha, character.level)}`}</h3></div>
                         </div>
                         <div className="mid">
                             <p>
