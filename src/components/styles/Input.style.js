@@ -31,7 +31,7 @@ const SubmitInput = styled.input`
 
 const SelectInput = styled.select`
   height: 30px;
-  width: 75px;
+  width: 100px;
   border: 2px ridge #d4af37;
   background: radial-gradient(farthest-corner at 0px 0px,
     #fff 0%, #aaa9ad 100%);
