@@ -9,7 +9,10 @@ export default function CharacterSheet() {
 
     const [isInspired, setIsInspired] = useState(false)
     const [character, setCharacter] = useState({})
-    const [race, setRace] = useState({})
+    const [race, setRace] = useState({
+        traits: '',
+        languages: ''
+    })
     const [klass, setKlass] = useState({})
     const [charSkills, setCharSkills] = useState([''])
     const [spells, setSpells] = useState([])
@@ -17,11 +20,15 @@ export default function CharacterSheet() {
     
     const skills = [{name: 'Acrobatics', stat: 'dex'}, {name: 'Animal Handling', stat: 'wis'}, {name: 'Arcana', stat: 'int'}, {name: 'Athletics', stat: 'str'}, {name: 'Deception', stat: 'cha'}, {name: 'History', stat: 'int'}, {name: 'Insight', stat: 'wis'}, {name: 'Intimidation', stat: 'cha'}, {name: 'Investigation', stat: 'int'}, {name: 'Medicine', stat: 'wis'}, {name: 'Nature', stat: 'int'}, {name: 'Perception', stat: 'wis'}, {name: 'Performance', stat: 'cha'}, {name: 'Persuasion', stat: 'cha'}, {name: 'Religion', stat: 'int'}, {name: 'Sleight of Hand', stat: 'dex'}, {name: 'Stealth', stat: 'dex'}, {name: 'Survival', stat: 'wis'}]
 
+    // var regex = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
+
     useEffect(() => {
         fetch(`http://localhost:9292/${params.username}/${params.id}`)
             .then(r=>r.json())
             .then(data=> {setCharacter(data[0]); setRace(data[1]); setKlass(data[2]); setCharSkills(charSkills => data[3].flatMap(skill => skill)); setSpells(data[4])})
     },[params.username, params.id])
+
+    console.log(race, klass)
 
     function statCalculation(num) {
         let modifier = Math.floor((num - 10) / 2)
@@ -340,7 +347,10 @@ export default function CharacterSheet() {
                     </div>
                 </SavingThrow>
                 <SensesBox>
-                    
+                    <p>LANGUAGES</p>
+                    <h3>{race.languages.replace(/[\[\]"]+/g, '')}</h3>
+                    <p>TRAITS</p>
+                    <h3>{race.traits.replace(/[\[\]"]+/g, '')}</h3>
                 </SensesBox>
                 <ProficiencyBox>
                     <div className="pro-header">
