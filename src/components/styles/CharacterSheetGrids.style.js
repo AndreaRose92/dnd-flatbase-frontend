@@ -5,11 +5,27 @@ const CSHeader = styled.section`
   display: flex;
 
   div.CSHeader1 {
-    width: 110px;
+    width: 100px;
+    height: 100px;
+    margin: 5px 15px;
+    border-radius: 10px;
+    border: 2px outset #d4af37;
+    background: radial-gradient(farthest-corner at 5px 5px,
+      #fff 0%, #aaa9ad 100%);
+  }
+
+  div.CSHeader1 > img {
+    width: 90px;
+    height: auto;
   }
 
   div.CSHeader2 {
     margin-left: 25px;
+  }
+
+  div.CSHeader2 > div {
+    margin-top: 20px;
+    display: flex;
   }
 `
 
@@ -175,6 +191,9 @@ const SensesBox = styled.section`
   border: 2px outset #d4af37;
   background: radial-gradient(farthest-corner at 30px 30px,
     #fff 0%, #aaa9ad 100%);
+  display:grid;
+  grid-template-rows: 40px 50px;
+  padding:20px;
 `
 
 const ProficiencyBox = styled.section`
@@ -279,7 +298,7 @@ const DefensesConditions = styled.section`
 
 const EquipmentBox = styled.section`
   grid-area: eb;
-  margin: 5px 15px;
+  margin: 5px;
   padding: 5px 10px;
   border-radius: 10px;
   border: 2px outset #d4af37;

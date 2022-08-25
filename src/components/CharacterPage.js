@@ -4,9 +4,10 @@ import { Link, useParams, Route, useRouteMatch} from "react-router-dom"
 // import CreateCharacter from './CreateCharacter';
 import CharCard from "./CharCard"
 // import CharacterSheet from './CharacterSheet'
-import { PlayerGrid } from "./styles/MainGrids.style"
+import { PlayerGrid, PCWrapper } from "./styles/MainGrids.style"
 import Card, { InnerCardGrid, TopSection } from "./styles/Cards.style"
 
+import charactersBanner from '../images/characters.png'
 import plus from '../images/plus.png'
 
 export default function CharacterPage() {
@@ -32,18 +33,23 @@ export default function CharacterPage() {
     })
 
     return (
-        <PlayerGrid>
-            {renderCharacters}
-            <Card as={Link} to={`/${params.username}/new-character`}>
-                <InnerCardGrid>
-                    <TopSection>
-                        <img src={plus} alt='New character plus sign'/><br/>
-                        <h2>New Character</h2>
-                    </TopSection>
-                    <div>
-                    </div>
-                </InnerCardGrid>
-            </Card>
-        </PlayerGrid>
+        <PCWrapper>
+            <section>
+                <img src={charactersBanner} alt='Characters banner'/>
+            </section>
+            <PlayerGrid>
+                {renderCharacters}
+                <Card as={Link} to={`/${params.username}/new-character`}>
+                    <InnerCardGrid>
+                        <TopSection>
+                            <img src={plus} alt='New character plus sign'/><br/>
+                            <h2>New Character</h2>
+                        </TopSection>
+                        <div>
+                        </div>
+                    </InnerCardGrid>
+                </Card>
+            </PlayerGrid>
+        </PCWrapper>
     )    
 }
