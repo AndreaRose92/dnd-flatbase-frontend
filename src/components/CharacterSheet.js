@@ -10,12 +10,20 @@ export default function CharacterSheet() {
     const [character, setCharacter] = useState({})
     const [race, setRace] = useState({})
     const [klass, setKlass] = useState({})
+    
+    const skills = [{name: 'Acrobatics', stat: 'dex'}, {name: 'Animal Handling', stat: 'wis'}, {name: 'Arcana', stat: 'int'}, {name: 'Athletics', stat: 'str'}, {name: 'Deception', stat: 'cha'}, {name: 'History', stat: 'int'}, {name: 'Insight', stat: 'wis'}, {name: 'Intimidation', stat: 'cha'}, {name: 'Investigation', stat: 'int'}, {name: 'Medicine', stat: 'wis'}, {name: 'Nature', stat: 'int'}, {name: 'Perception', stat: 'wis'}, {name: 'Performance', stat: 'cha'}, {name: 'Persuasion', stat: 'cha'}, {name: 'Religion', stat: 'int'}, {name: 'Sleight of Hand', stat: 'dex'}, {name: 'Stealth', stat: 'dex'}, {name: 'Survival', stat: 'wis'}]
 
     useEffect(() => {
         fetch(`http://localhost:9292/${params.username}/${params.id}`)
             .then(r=>r.json())
             .then(data=> {setCharacter(data[0]); setRace(data[1]); setKlass(data[2])})
     },[params.username, params.id])
+
+    // useEffect(()=> {
+    //     fetch(`http://localhost:9292/skills`)
+    //         .then(r=>r.json())
+    //         .then(data=>setSkills(data))
+    // }, [])
 
     function statCalculation(num) {
         let modifier = Math.floor((num - 10) / 2)
@@ -41,6 +49,15 @@ export default function CharacterSheet() {
         prof ? total = `+${parseInt(statCalculation(stat)) + parseInt(proficiencyBonus(lvl))}` : total = statCalculation(stat)
         return total
     }
+
+    const renderSkills = skills.map(skill => {
+            return (<>
+                <h3>0</h3>
+                <h3>{skill.stat}</h3>
+                <h3 className="skill">{skill.name}</h3>
+                <h3>{skillProficiency(false, character[skill.stat], character.level)}</h3>
+            </>)
+        })
 
     return (
         <CharacterWrapper>
@@ -211,12 +228,7 @@ export default function CharacterSheet() {
                         <p className="skill">SKILL</p>
                         <p>BONUS</p>
                     </div>
-                    <div className="pro-grid">
-                        <h4>Test</h4>
-                        <h4>Test</h4>
-                        <h4 className="skill">Test</h4>
-                        <h4>Test</h4>
-                    </div>
+                    <div className="pro-grid">{renderSkills}</div>
                 </ProficiencyBox>
                 <InitiativeBox>
                     <div>
