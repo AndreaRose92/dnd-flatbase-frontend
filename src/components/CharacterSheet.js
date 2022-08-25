@@ -11,14 +11,16 @@ export default function CharacterSheet() {
     const [race, setRace] = useState({})
     const [klass, setKlass] = useState({})
     const [charSkills, setCharSkills] = useState([''])
+    const [spells, setSpells] = useState([])
     
     const skills = [{name: 'Acrobatics', stat: 'dex'}, {name: 'Animal Handling', stat: 'wis'}, {name: 'Arcana', stat: 'int'}, {name: 'Athletics', stat: 'str'}, {name: 'Deception', stat: 'cha'}, {name: 'History', stat: 'int'}, {name: 'Insight', stat: 'wis'}, {name: 'Intimidation', stat: 'cha'}, {name: 'Investigation', stat: 'int'}, {name: 'Medicine', stat: 'wis'}, {name: 'Nature', stat: 'int'}, {name: 'Perception', stat: 'wis'}, {name: 'Performance', stat: 'cha'}, {name: 'Persuasion', stat: 'cha'}, {name: 'Religion', stat: 'int'}, {name: 'Sleight of Hand', stat: 'dex'}, {name: 'Stealth', stat: 'dex'}, {name: 'Survival', stat: 'wis'}]
 
     useEffect(() => {
         fetch(`http://localhost:9292/${params.username}/${params.id}`)
             .then(r=>r.json())
-            .then(data=> {setCharacter(data[0]); setRace(data[1]); setKlass(data[2]); setCharSkills(charSkills => data[3].flatMap(skill => skill))})
+            .then(data=> {setCharacter(data[0]); setRace(data[1]); setKlass(data[2]); setCharSkills(charSkills => data[3].flatMap(skill => skill)); setSpells(data[4])})
     },[params.username, params.id])
+    console.log(spells)
 
     function statCalculation(num) {
         let modifier = Math.floor((num - 10) / 2)
@@ -53,6 +55,15 @@ export default function CharacterSheet() {
                 <h3>{skillProficiency(false, character[skill.stat], character.level)}</h3>
             </>)
         })
+
+    const renderSpells = spells.sort((a,b)=>a.level-b.level).map(spell => {
+        return (
+            <>
+                <h3>{spell.level}</h3>
+                <h3>{spell.name}</h3>
+            </>
+        )
+    })
 
     return (
         <CharacterWrapper>
@@ -248,7 +259,7 @@ export default function CharacterSheet() {
 
                 </DefensesConditions>
                 <EquipmentBox>
-
+                    {renderSpells}
                 </EquipmentBox>
                 
             </CharacterGrid>
