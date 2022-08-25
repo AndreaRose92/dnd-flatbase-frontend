@@ -31,7 +31,6 @@ export default function CreateCharacter() {
             ...newCharacter,
             [formName]: formValue
         })
-        console.log(`${formName}: ${formValue}`)
     }
 
     const handleSubmit = (e) => {

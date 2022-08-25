@@ -64,6 +64,7 @@ export default function CharacterSheet() {
                 <h4 className="skill">{spell.name}</h4>
                 <h4>{spell.casting_time}</h4>
                 <h4>{spell.range}</h4>
+                <div className="spell-desc"><h4>{spell.description}</h4></div>
             </>
         )
     })
@@ -101,6 +102,7 @@ export default function CharacterSheet() {
                         <p>SKILL</p>
                         <p>TIME</p>
                         <p>RANGE</p>
+                        <p>DESCRIPTION</p>
                     </div>
                     <div className="eq-bottom">
                         <div className="eq-grid">{renderSpells}</div>

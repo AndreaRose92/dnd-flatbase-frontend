@@ -315,23 +315,35 @@ const EquipmentWrap = styled.nav`
   .eq-header {
     display: grid;
     height: 30px;
-    grid-template-columns: 50px 150px 80px 50px;
+    grid-template-columns: 50px 150px 80px 50px 300px;
     grid-template-rows: 1fr;
     align-items: center;
     text-align: center;
-  }
-
-  .eq-bottom {
-
   }
 
   .eq-grid {
     display: grid;
     height: 30px;
-    grid-template-columns: 50px 150px 80px 50px;
+    grid-template-columns: 50px 150px 80px 50px 300px;
     grid-template-rows: 1fr;
     align-items: center;
     text-align: center;
+  }
+
+  .eq-grid > div.spell-desc {
+    padding: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+  }
+
+  .eq-grid > div.spell-desc:hover {
+    border: 2px ridge #d4af37;
+    background: radial-gradient(farthest-corner at 0px 0px,
+    #fff 0%, #d4af37 100%);
+    overflow: visible;
+    white-space: normal;
   }
 `
 
