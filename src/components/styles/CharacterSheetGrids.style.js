@@ -15,7 +15,10 @@ const CSHeader = styled.section`
 
 const StatBox = styled.section`
   margin: 5px 15px;
-  border: 3px double purple;
+  border-radius: 10px;
+  border: 2px outset #d4af37;
+  background: radial-gradient(farthest-corner at 5px 5px,
+    #fff 0%, #aaa9ad 100%);
   display: flex;
   justify-content: center;
 
@@ -41,7 +44,10 @@ const StatBox = styled.section`
 
 const AuxiliaryBox = styled.section`
   margin: 5px;
-  border: 3px double purple;
+  border-radius: 10px;
+  border: 2px outset #d4af37;
+  background: radial-gradient(farthest-corner at 5px 5px,
+    #fff 0%, #aaa9ad 100%);
   display: flex;
   justify-content: center;
 
@@ -77,7 +83,10 @@ const InspirationBox = styled.section`
   }
 
   .inspiration-box {
-    border: 3px double purple;
+    border-radius: 10px;
+    border: 2px outset #d4af37;
+  background: radial-gradient(farthest-corner at 5px 5px,
+    #fff 0%, #aaa9ad 100%);
     height: 60px;
     width: 100px;
     display: flex;
@@ -93,7 +102,10 @@ const InspirationBox = styled.section`
 const HealthBox = styled.section`
   grid-area: hb;
   margin: 5px;
-  border: 3px double purple;
+  border-radius: 10px;
+  border: 2px outset #d4af37;
+  background: radial-gradient(farthest-corner at 5px 5px,
+    #fff 0%, #aaa9ad 100%);
   display: inline-flex;
   flex-direction: row;
   justify-content: center;
@@ -121,7 +133,10 @@ const HealthBox = styled.section`
 const SavingThrow = styled.section`
   grid-area: st;
   margin: 5px 15px;
-  border: 3px double purple;
+  border-radius: 10px;
+  border: 2px outset #d4af37;
+  background: radial-gradient(farthest-corner at 30px 30px,
+    #fff 0%, #aaa9ad 100%);
   display: flex;
 
   div {
@@ -156,14 +171,20 @@ const SavingThrow = styled.section`
 const SensesBox = styled.section`
   grid-area: sn;
   margin: 5px 15px;
-  border: 3px double purple;
+  border-radius: 10px;
+  border: 2px outset #d4af37;
+  background: radial-gradient(farthest-corner at 30px 30px,
+    #fff 0%, #aaa9ad 100%);
 `
 
 const ProficiencyBox = styled.section`
   grid-area: pb;
   margin: 5px 15px;
   padding: 5px 10px;
-  border: 3px double purple;
+  border-radius: 10px;
+  border: 2px outset #d4af37;
+  background: radial-gradient(farthest-corner at 30px 30px,
+    #fff 0%, #aaa9ad 100%);
 
   .pro-header {
     display: grid;
@@ -201,7 +222,10 @@ const InitiativeBox = styled.section`
   }  
 
   .mid {
-    border: 3px double purple;
+    border-radius: 10px;
+    border: 2px outset #d4af37;
+  background: radial-gradient(farthest-corner at 5px 5px,
+    #fff 0%, #aaa9ad 100%);
     height: 50px;
     width: 100px;
     display: flex;
@@ -213,7 +237,10 @@ const InitiativeBox = styled.section`
 const ArmorClass = styled.section`
   grid-area: ac;
   margin: 5px;
-  border: 3px double purple;
+  border-radius: 10px;
+  border: 2px outset #d4af37;
+  background: radial-gradient(farthest-corner at 5px 5px,
+    #fff 0%, #aaa9ad 100%);
 
   div {
     display: grid;
@@ -244,13 +271,19 @@ const ArmorClass = styled.section`
 const DefensesConditions = styled.section`
   grid-area: dc;
   margin: 5px;
-  border: 3px double purple;
+  border-radius: 10px;
+  border: 2px outset #d4af37;
+  background: radial-gradient(farthest-corner at 5px 5px,
+    #fff 0%, #aaa9ad 100%);
 `
 
 const EquipmentBox = styled.section`
   grid-area: eb;
   margin: 5px;
-  border: 3px double purple;
+  border-radius: 10px;
+  border: 2px outset #d4af37;
+  background: radial-gradient(farthest-corner at 40px 40px,
+    #fff 0%, #aaa9ad 100%);
 `
 
 export {StatBox, CSHeader, AuxiliaryBox, InspirationBox, HealthBox, SavingThrow, ProficiencyBox, EquipmentBox, SensesBox, ArmorClass, DefensesConditions, InitiativeBox}

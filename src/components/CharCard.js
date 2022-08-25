@@ -1,6 +1,8 @@
 import { Link, useParams } from "react-router-dom"
 
-import Card, { InnerCardGrid, TopSection } from './styles/Cards.style'
+import Card, { Button, InnerCardGrid, TopSection } from './styles/Cards.style'
+import quill from '../images/quill.png'
+import trashcan from '../images/trashcan.png'
 
 
 export default function CharCard({ character, handleDelete }) {
@@ -16,14 +18,18 @@ export default function CharCard({ character, handleDelete }) {
         <Card>
             <InnerCardGrid>
                 <TopSection as={Link} key={character.id} to={`/${params.username}/${character.id}`}>
-                    <img alt='Character avatar'/><br/>
+                    <img src='../images/playerslgbtq+.png' alt='Character avatar'/><br/>
                     <h2>{character.name}</h2>
                 </TopSection>            
                 <div className="bottom">
-                    <Link to={`/${params.username}/${character.id}/edit`}>
-                        <button></button>    
-                    </Link>                    
-                    <button onClick={deleteCharacter}></button>
+                    <Button as={Link} to={`/${params.username}/${character.id}/edit`}>
+                        <img src={quill} alt='edit button'/>
+                        <p>Edit</p>    
+                    </Button>                    
+                    <Button as='div' onClick={deleteCharacter}>
+                        <img src={trashcan} alt='delete button'/>
+                        <p>Delete</p>
+                    </Button>
                 </div>
             </InnerCardGrid>
         </Card>

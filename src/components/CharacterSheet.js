@@ -210,11 +210,11 @@ export default function CharacterSheet() {
                         </div>
                         <div className="mid">
                             <p>
-                                test
+                                Saving throw modifiers
                             </p>                            
                         </div>
                         <div className="bottom">
-                            <h4>TEST</h4>
+                            <h4>SAVING THROWS</h4>
                         </div>                        
                     </div>
                 </SavingThrow>

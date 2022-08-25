@@ -7,6 +7,8 @@ import CharCard from "./CharCard"
 import { PlayerGrid } from "./styles/MainGrids.style"
 import Card, { InnerCardGrid, TopSection } from "./styles/Cards.style"
 
+import plus from '../images/plus.png'
+
 export default function CharacterPage() {
     const params = useParams()
     const match = useRouteMatch()
@@ -35,7 +37,7 @@ export default function CharacterPage() {
             <Card as={Link} to={`/${params.username}/new-character`}>
                 <InnerCardGrid>
                     <TopSection>
-                        <img alt='New character plus sign'/><br/>
+                        <img src={plus} alt='New character plus sign'/><br/>
                         <h2>New Character</h2>
                     </TopSection>
                     <div>

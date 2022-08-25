@@ -4,7 +4,7 @@ const PageWrapper = styled.div`
   margin: 0;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 100px 1fr;
+  grid-template-rows: 100px calc(100vh - 100px);
   gap: 10px;
 `
 
@@ -17,6 +17,7 @@ const PlayerGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 30px;
+  justify-items: center;
 `
 
 const CharacterWrapper = styled.div`

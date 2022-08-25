@@ -1,6 +1,9 @@
 import { useParams, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react"
 
+import Input, {SubmitInput} from "./styles/Input.style"
+import { FormWrapper, EditGrid } from "./styles/FormGrids.style"
+
 export default function EditCharacter() {
     const params = useParams()
     const history = useHistory()
@@ -66,30 +69,39 @@ export default function EditCharacter() {
 
 
     return (
-        <div>
+        <FormWrapper>
             <form className='updatedCharacter' onSubmit={(e)=>handleSubmit(e)}>
-                <h1>Character Editor</h1>
-                <div>
-                    <label htmlFor='name'>Name:</label>
-                    <input type="text" value={updatedCharacter.name} name="name" onChange={handleInput}/><br/>
-                    <label htmlFor='level'>Level:</label>
-                    <input type="number" value={updatedCharacter.level} name="level" onChange={handleInput}/><br/>
-                    <label htmlFor='str'>Strength:</label>
-                    <input type="number" value={updatedCharacter.str} name="str" onChange={handleInput}/><br/>
-                    <label htmlFor='dex'>Dexterity:</label>
-                    <input type="number" value={updatedCharacter.dex} name="dex" onChange={handleInput}/><br/>
-                    <label htmlFor='con'>Constitution:</label>
-                    <input type="number" value={updatedCharacter.con} name="con" onChange={handleInput}/><br/>
-                    <label htmlFor='int'>Intelligence:</label>
-                    <input type="number" value={updatedCharacter.int} name="int" onChange={handleInput}/><br/>
-                    <label htmlFor='wis'>Wisdom:</label>
-                    <input type="number" value={updatedCharacter.wis} name="wis" onChange={handleInput}/><br/>
-                    <label htmlFor='cha'>Charisma:</label>
-                    <input type="number" value={updatedCharacter.cha} name="cha" onChange={handleInput}/><br/>
-                    <input type="submit"/>
-                </div>
+                
+                <EditGrid>
+                    <div><h1>Character Editor</h1></div>
+                    <label htmlFor='name'>Name:
+                        <Input type="text" value={updatedCharacter.name} name="name" onChange={handleInput}/>
+                    </label>
+                    <label htmlFor='level'>Level:
+                        <Input type="number" value={updatedCharacter.level} name="level" onChange={handleInput}/>
+                    </label>
+                    <label htmlFor='str'>Strength:
+                        <Input type="number" value={updatedCharacter.str} name="str" onChange={handleInput}/>
+                    </label>
+                    <label htmlFor='dex'>Dexterity:
+                        <Input type="number" value={updatedCharacter.dex} name="dex" onChange={handleInput}/>
+                    </label>
+                    <label htmlFor='con'>Constitution:
+                        <Input type="number" value={updatedCharacter.con} name="con" onChange={handleInput}/>
+                    </label>
+                    <label htmlFor='int'>Intelligence:
+                        <Input type="number" value={updatedCharacter.int} name="int" onChange={handleInput}/>
+                    </label>
+                    <label htmlFor='wis'>Wisdom:
+                        <Input type="number" value={updatedCharacter.wis} name="wis" onChange={handleInput}/>
+                    </label>
+                    <label htmlFor='cha'>Charisma:
+                        <Input type="number" value={updatedCharacter.cha} name="cha" onChange={handleInput}/>
+                    </label>
+                    <div><SubmitInput type="submit"/></div>
+                </EditGrid>
             </form>
-        </div>
+        </FormWrapper>
     )
 
 }

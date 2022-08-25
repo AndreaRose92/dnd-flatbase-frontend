@@ -1,6 +1,9 @@
 import { useParams, useHistory } from "react-router-dom";
 import { useState } from "react"
 
+import Input, { SubmitInput, SelectInput } from "./styles/Input.style"
+import FormGrid, { FormWrapper } from "./styles/FormGrids.style"
+
 export default function CreateCharacter() {
     const params = useParams()
     const history = useHistory()
@@ -58,32 +61,41 @@ export default function CreateCharacter() {
 
 
     return (
-        <div>
+        <FormWrapper>
             <form className='newCharacter' onSubmit={(e)=>handleSubmit(e)}>
-                <h1>Character Builder</h1>
-                <div>
+                
+                <FormGrid>
+                    <div><h1>Character Builder</h1></div>
                     {/* <label htmlFor='player'>Player:</label>
                     <input type="text" name="player" onChange={handleInput}/><br/> */}
-                    <label htmlFor='name'>Name:</label>
-                    <input type="text" name="name" onChange={handleInput}/><br/>
+                    <label htmlFor='name'>Name:
+                        <Input type="text" name="name" onChange={handleInput}/>
+                    </label>
                     {/* <label htmlFor='image'>Image:</label>
-                    <input type="text" name="image" onChange={handleInput}/><br/> */}
-                    <label htmlFor='level'>Level:</label>
-                    <input type="number" name="level" onChange={handleInput}/><br/>
-                    <label htmlFor='str'>Strength:</label>
-                    <input type="number" name="str" onChange={handleInput}/><br/>
-                    <label htmlFor='dex'>Dexterity:</label>
-                    <input type="number" name="dex" onChange={handleInput}/><br/>
-                    <label htmlFor='con'>Constitution:</label>
-                    <input type="number" name="con" onChange={handleInput}/><br/>
-                    <label htmlFor='int'>Intelligence:</label>
-                    <input type="number" name="int" onChange={handleInput}/><br/>
-                    <label htmlFor='wis'>Wisdom:</label>
-                    <input type="number" name="wis" onChange={handleInput}/><br/>
-                    <label htmlFor='cha'>Charisma:</label>
-                    <input type="number" name="cha" onChange={handleInput}/><br/>
-                    <label htmlFor='class'>Class:</label>
-                    <select name="klass" onChange={handleInput}>
+                    <input type="text" name="image" onChange={handleInput}/> */}
+                    <label htmlFor='level'>Level:
+                        <Input type="number" name="level" onChange={handleInput}/>
+                    </label>
+                    <label htmlFor='str'>Strength:
+                        <Input type="number" name="str" onChange={handleInput}/>
+                    </label>
+                    <label htmlFor='dex'>Dexterity:
+                        <Input type="number" name="dex" onChange={handleInput}/>
+                    </label>
+                    <label htmlFor='con'>Constitution:
+                        <Input type="number" name="con" onChange={handleInput}/>
+                    </label>
+                    <label htmlFor='int'>Intelligence:
+                        <Input type="number" name="int" onChange={handleInput}/>
+                    </label>
+                    <label htmlFor='wis'>Wisdom:
+                        <Input type="number" name="wis" onChange={handleInput}/>
+                    </label>
+                    <label htmlFor='cha'>Charisma:
+                        <Input type="number" name="cha" onChange={handleInput}/>
+                    </label>
+                    <label htmlFor='class'>Class:
+                    <SelectInput name="klass" onChange={handleInput}>
                         <option name="Default">---</option>
                         <option name="Barbarian">Barbarian</option>
                         <option name="Bard">Bard</option>
@@ -97,9 +109,10 @@ export default function CreateCharacter() {
                         <option name="Sorcerer">Sorcerer</option>
                         <option name="Warlock">Warlock</option>
                         <option name="Wizard">Wizard</option>
-                    </select><br/>
-                    <label htmlFor='race'>Race:</label>
-                    <select name="race" onChange={handleInput}>
+                    </SelectInput>
+                    </label>
+                    <label htmlFor='race'>Race:
+                    <SelectInput name="race" onChange={handleInput}>
                         <option name="Default">---</option>
                         <option name="Dragonborn">Dragonborn</option>
                         <option name="Dwarf">Dwarf</option>
@@ -109,12 +122,13 @@ export default function CreateCharacter() {
                         <option name="Half-Orc">Half-Orc</option>
                         <option name="Halfling">Halfling</option>
                         <option name="Human">Human</option>
-                        <option name="Tiefling">Tiefling</option>
-                    </select><br/>
-                    <input type="submit"/>
-                </div>
+                        <option name="Tiefling">Tiefling</option>              
+                    </SelectInput>
+                    </label>
+                    <div><SubmitInput type="submit"/></div>
+                </FormGrid>
             </form>
-        </div>
+        </FormWrapper>
     )
 
 }
