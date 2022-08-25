@@ -50,7 +50,7 @@ export default function CharacterSheet() {
 
     const renderSkills = skills.map(skill => {
             return (<>
-                <h3>{charSkills.includes(skill.name) ? "✅" : "❌"}</h3>
+                <h3>{charSkills.includes(skill.name) ? "●" : "○"}</h3>
                 <h3>{skill.stat}</h3>
                 <h3 className="skill">{skill.name}</h3>
                 <h3>{skillProficiency(charSkills.includes(skill.name), character[skill.stat], character.level)}</h3>
@@ -59,9 +59,11 @@ export default function CharacterSheet() {
 
     const renderSpells = spells.sort((a,b)=>a.level-b.level).map(spell => {
         return (
-            <>
-                <h3>{spell.level}</h3>
-                <h3>{spell.name}</h3>
+            <>                
+                <h4>{spell.level}</h4>
+                <h4 className="skill">{spell.name}</h4>
+                <h4>{spell.casting_time}</h4>
+                <h4>{spell.range}</h4>
             </>
         )
     })
@@ -202,17 +204,17 @@ export default function CharacterSheet() {
                 <SavingThrow>
                     <div>
                         <div className="top">
-                            <div><div>0</div></div>
+                            <div><div>{charSkills.includes("Str Save") ? "●" : "○"}</div></div>
                             <div><h3>{`Str ${skillProficiency(charSkills.includes("Str Save"), character.str, character.level)}`}</h3></div>
-                            <div><div>0</div></div>
+                            <div><div>{charSkills.includes("Int Save") ? "●" : "○"}</div></div>
                             <div><h3>{`Int ${skillProficiency(charSkills.includes("Int Save"), character.int, character.level)}`}</h3></div>
-                            <div><div>0</div></div>
+                            <div><div>{charSkills.includes("Dex Save") ? "●" : "○"}</div></div>
                             <div><h3>{`Dex ${skillProficiency(charSkills.includes("Dex Save"), character.dex, character.level)}`}</h3></div>
-                            <div><div>0</div></div>
+                            <div><div>{charSkills.includes("Wis Save") ? "●" : "○"}</div></div>
                             <div><h3>{`Wis ${skillProficiency(charSkills.includes("Wis Save"), character.wis, character.level)}`}</h3></div>
-                            <div><div>0</div></div>
+                            <div><div>{charSkills.includes("Con Save") ? "●" : "○"}</div></div>
                             <div><h3>{`Con ${skillProficiency(charSkills.includes("Con Save"), character.con, character.level)}`}</h3></div>
-                            <div><div>0</div></div>
+                            <div><div>{charSkills.includes("Cha Save") ? "●" : "○"}</div></div>
                             <div><h3>{`Cha ${skillProficiency(charSkills.includes("Cha Save"), character.cha, character.level)}`}</h3></div>
                         </div>
                         <div className="mid">
@@ -260,7 +262,13 @@ export default function CharacterSheet() {
 
                 </DefensesConditions>
                 <EquipmentBox>
-                    {renderSpells}
+                <div className="pro-header">
+                        <p>LEVEL</p>                        
+                        <p className="skill">SKILL</p>
+                        <p>TIME</p>
+                        <p>RANGE</p>
+                    </div>
+                    <div className="pro-grid">{renderSpells}</div>
                 </EquipmentBox>
                 
             </CharacterGrid>

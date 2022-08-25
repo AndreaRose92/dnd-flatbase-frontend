@@ -279,11 +279,35 @@ const DefensesConditions = styled.section`
 
 const EquipmentBox = styled.section`
   grid-area: eb;
-  margin: 5px;
+  margin: 5px 15px;
+  padding: 5px 10px;
   border-radius: 10px;
   border: 2px outset #d4af37;
   background: radial-gradient(farthest-corner at 40px 40px,
     #fff 0%, #aaa9ad 100%);
+
+  .pro-header {
+    display: grid;
+    height: 30px;
+    grid-template-columns: 50px 150px 50px 50px;
+    grid-template-rows: 1fr;
+    align-items: center;
+    text-align: center;
+  }
+
+  .skill {
+    padding-left: 5px;
+    text-align: left;
+  }
+
+  .pro-grid {
+    display: grid;
+    height: 30px;
+    grid-template-columns: 50px 150px 50px 50px;
+    grid-template-rows: 1fr;
+    align-items: center;
+    text-align: center;
+  }
 `
 
 export {StatBox, CSHeader, AuxiliaryBox, InspirationBox, HealthBox, SavingThrow, ProficiencyBox, EquipmentBox, SensesBox, ArmorClass, DefensesConditions, InitiativeBox}
