@@ -193,7 +193,7 @@ export default function CharacterSheet() {
                         </div>
                         <div className="mid">
                             <p>
-                                test
+                                Saving throw modifiers
                             </p>                            
                         </div>
                         <div className="bottom">

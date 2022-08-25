@@ -1,6 +1,8 @@
 import { useParams, useHistory } from "react-router-dom";
 import { useState } from "react"
 
+import Input, { SubmitInput, SelectInput } from "./styles/Input.style"
+
 export default function CreateCharacter() {
     const params = useParams()
     const history = useHistory()
@@ -65,25 +67,25 @@ export default function CreateCharacter() {
                     {/* <label htmlFor='player'>Player:</label>
                     <input type="text" name="player" onChange={handleInput}/><br/> */}
                     <label htmlFor='name'>Name:</label>
-                    <input type="text" name="name" onChange={handleInput}/><br/>
+                    <Input type="text" name="name" onChange={handleInput}/><br/>
                     {/* <label htmlFor='image'>Image:</label>
                     <input type="text" name="image" onChange={handleInput}/><br/> */}
                     <label htmlFor='level'>Level:</label>
-                    <input type="number" name="level" onChange={handleInput}/><br/>
+                    <Input type="number" name="level" onChange={handleInput}/><br/>
                     <label htmlFor='str'>Strength:</label>
-                    <input type="number" name="str" onChange={handleInput}/><br/>
+                    <Input type="number" name="str" onChange={handleInput}/><br/>
                     <label htmlFor='dex'>Dexterity:</label>
-                    <input type="number" name="dex" onChange={handleInput}/><br/>
+                    <Input type="number" name="dex" onChange={handleInput}/><br/>
                     <label htmlFor='con'>Constitution:</label>
-                    <input type="number" name="con" onChange={handleInput}/><br/>
+                    <Input type="number" name="con" onChange={handleInput}/><br/>
                     <label htmlFor='int'>Intelligence:</label>
-                    <input type="number" name="int" onChange={handleInput}/><br/>
+                    <Input type="number" name="int" onChange={handleInput}/><br/>
                     <label htmlFor='wis'>Wisdom:</label>
-                    <input type="number" name="wis" onChange={handleInput}/><br/>
+                    <Input type="number" name="wis" onChange={handleInput}/><br/>
                     <label htmlFor='cha'>Charisma:</label>
-                    <input type="number" name="cha" onChange={handleInput}/><br/>
+                    <Input type="number" name="cha" onChange={handleInput}/><br/>
                     <label htmlFor='class'>Class:</label>
-                    <select name="klass" onChange={handleInput}>
+                    <SelectInput name="klass" onChange={handleInput}>
                         <option name="Default">---</option>
                         <option name="Barbarian">Barbarian</option>
                         <option name="Bard">Bard</option>
@@ -97,9 +99,9 @@ export default function CreateCharacter() {
                         <option name="Sorcerer">Sorcerer</option>
                         <option name="Warlock">Warlock</option>
                         <option name="Wizard">Wizard</option>
-                    </select><br/>
+                    </SelectInput><br/>
                     <label htmlFor='race'>Race:</label>
-                    <select name="race" onChange={handleInput}>
+                    <SelectInput name="race" onChange={handleInput}>
                         <option name="Default">---</option>
                         <option name="Dragonborn">Dragonborn</option>
                         <option name="Dwarf">Dwarf</option>
@@ -110,8 +112,8 @@ export default function CreateCharacter() {
                         <option name="Halfling">Halfling</option>
                         <option name="Human">Human</option>
                         <option name="Tiefling">Tiefling</option>
-                    </select><br/>
-                    <input type="submit"/>
+                    </SelectInput><br/>
+                    <SubmitInput type="submit"/>
                 </div>
             </form>
         </div>

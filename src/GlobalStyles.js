@@ -10,6 +10,13 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
   }
 
+  body {
+    height: 100%;
+    width: 100%;
+    background: radial-gradient(farthest-corner at 40px 40px,
+    #fff 0%, #d4af37 100%);
+  }
+
   h2 {
     font-size: 1.8rem;
   }

@@ -8,15 +8,18 @@ const CardBox = styled.nav`
 
 const Card = styled.div`
   width: 92%;
-  max-width: 250px;
+  max-width: 220px;
   height: 300px;
   transition: 0.3s;
   border-radius: 10px;
-  border: 3px double purple;
-  background-color: #ba9d6a;
+  border: 2px outset #d4af37;
+  background: radial-gradient(farthest-corner at 40px 40px,
+    #fff 0%, #aaa9ad 100%);
+  box-shadow: 2px 6px 4px black;
   box-sizing: inherit;
   display: flex;
   justify-content: center;
+  
   
   button {
     height: 30px;
@@ -25,17 +28,20 @@ const Card = styled.div`
 
   &:hover {
     background-color: #b5842f;
+    transform: scale(1.05);
+    box-shadow: 3px 7px 6px black;
+    transition: 0.3s;
   }
 `
 
 const InnerCardGrid = styled.div`
-  width: 250px;
+  width: 220px;
   display: grid;
   grid-template-rows: 250px 50px;
   text-decoration: none;
 
   div.bottom {
-    width: 250px;
+    width: 220px;
     display: inline-flex;
     justify-content: space-evenly;
   }  
@@ -49,16 +55,38 @@ const TopSection = styled.section`
 
   img {
     border-radius: 20px;
-    max-width: 210px;
-    height: 210px;
+    max-width: 160px;
+    height: 160px;
     padding: 10px;
   }
 
   h2 {
     padding: 10px;
   }
-
 `
 
-export {CardBox, InnerCardGrid, TopSection}
+const Button = styled.button`
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  width: 60px;
+  border-radius: 10px;
+  border: 2px ridge #d4af37;
+  cursor: pointer;
+  background: radial-gradient(farthest-corner at 0px 0px,
+    #fff 0%, #aaa9ad 100%);
+
+  img {
+    width: 25px;
+    height: auto;
+  }
+
+  :hover {
+    background: radial-gradient(farthest-corner at 0px 0px,
+    #fff 0%, #d4af37 100%);
+  }
+`
+
+export {CardBox, InnerCardGrid, TopSection, Button}
 export default Card

@@ -4,6 +4,8 @@ import PlayerCard from './PlayerCard'
 
 import { PlayerGrid } from './styles/MainGrids.style'
 import Card, { CardBox, InnerCardGrid, TopSection } from './styles/Cards.style'
+import Input, { SubmitInput } from './styles/Input.style'
+import plus from '../images/plus.png'
 
 const Home = ({players, setPlayers}) => {
 
@@ -45,11 +47,11 @@ const Home = ({players, setPlayers}) => {
       <Card>
         <InnerCardGrid>
           <TopSection>
-            <img alt='New player plus sign'/><br/>
+            <img src={plus} alt='New player plus sign'/><br/>
             <form onSubmit={handleSubmit}>
               <label htmlFor="newPlayer">New Player:</label>
-              <input type="text" name="newPlayer" value={newPlayer} onChange={handleInput} />
-              <input type="submit" />
+              <Input type="text" name="newPlayer" value={newPlayer} onChange={handleInput} />
+              <SubmitInput type="submit" />
             </form>
           </TopSection>
           <div>

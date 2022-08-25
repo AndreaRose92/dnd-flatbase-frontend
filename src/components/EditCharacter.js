@@ -1,6 +1,8 @@
 import { useParams, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react"
 
+import Input, {SubmitInput} from "./styles/Input.style"
+
 export default function EditCharacter() {
     const params = useParams()
     const history = useHistory()
@@ -71,22 +73,22 @@ export default function EditCharacter() {
                 <h1>Character Editor</h1>
                 <div>
                     <label htmlFor='name'>Name:</label>
-                    <input type="text" value={updatedCharacter.name} name="name" onChange={handleInput}/><br/>
+                    <Input type="text" value={updatedCharacter.name} name="name" onChange={handleInput}/><br/>
                     <label htmlFor='level'>Level:</label>
-                    <input type="number" value={updatedCharacter.level} name="level" onChange={handleInput}/><br/>
+                    <Input type="number" value={updatedCharacter.level} name="level" onChange={handleInput}/><br/>
                     <label htmlFor='str'>Strength:</label>
-                    <input type="number" value={updatedCharacter.str} name="str" onChange={handleInput}/><br/>
+                    <Input type="number" value={updatedCharacter.str} name="str" onChange={handleInput}/><br/>
                     <label htmlFor='dex'>Dexterity:</label>
-                    <input type="number" value={updatedCharacter.dex} name="dex" onChange={handleInput}/><br/>
+                    <Input type="number" value={updatedCharacter.dex} name="dex" onChange={handleInput}/><br/>
                     <label htmlFor='con'>Constitution:</label>
-                    <input type="number" value={updatedCharacter.con} name="con" onChange={handleInput}/><br/>
+                    <Input type="number" value={updatedCharacter.con} name="con" onChange={handleInput}/><br/>
                     <label htmlFor='int'>Intelligence:</label>
-                    <input type="number" value={updatedCharacter.int} name="int" onChange={handleInput}/><br/>
+                    <Input type="number" value={updatedCharacter.int} name="int" onChange={handleInput}/><br/>
                     <label htmlFor='wis'>Wisdom:</label>
-                    <input type="number" value={updatedCharacter.wis} name="wis" onChange={handleInput}/><br/>
+                    <Input type="number" value={updatedCharacter.wis} name="wis" onChange={handleInput}/><br/>
                     <label htmlFor='cha'>Charisma:</label>
-                    <input type="number" value={updatedCharacter.cha} name="cha" onChange={handleInput}/><br/>
-                    <input type="submit"/>
+                    <Input type="number" value={updatedCharacter.cha} name="cha" onChange={handleInput}/><br/>
+                    <SubmitInput type="submit"/>
                 </div>
             </form>
         </div>
