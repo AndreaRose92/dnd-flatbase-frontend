@@ -17,6 +17,7 @@ export default function CharacterSheet() {
     const [charSkills, setCharSkills] = useState([''])
     const [spells, setSpells] = useState([])
     const [eqBoxSelected, setEqBoxSelected] = useState("spells")
+    const [newHP, setNewHP] = useState(0)
     
     const skills = [{name: 'Acrobatics', stat: 'dex'}, {name: 'Animal Handling', stat: 'wis'}, {name: 'Arcana', stat: 'int'}, {name: 'Athletics', stat: 'str'}, {name: 'Deception', stat: 'cha'}, {name: 'History', stat: 'int'}, {name: 'Insight', stat: 'wis'}, {name: 'Intimidation', stat: 'cha'}, {name: 'Investigation', stat: 'int'}, {name: 'Medicine', stat: 'wis'}, {name: 'Nature', stat: 'int'}, {name: 'Perception', stat: 'wis'}, {name: 'Performance', stat: 'cha'}, {name: 'Persuasion', stat: 'cha'}, {name: 'Religion', stat: 'int'}, {name: 'Sleight of Hand', stat: 'dex'}, {name: 'Stealth', stat: 'dex'}, {name: 'Survival', stat: 'wis'}]
 
@@ -29,6 +30,19 @@ export default function CharacterSheet() {
     },[params.username, params.id])
 
     console.log(race, klass)
+
+    const handleHP = (e) => {
+        e.preventDefault()
+        fetch(`http://localhost:9292/${params.username}/${params.id}/${e.target.name}`, {
+            method: "PATCH",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({newHP})
+        })
+            .then(r=>r.json())
+            .then(data=>setCharacter(data))
+        
+    }
+
 
     function statCalculation(num) {
         let modifier = Math.floor((num - 10) / 2)
@@ -78,26 +92,27 @@ export default function CharacterSheet() {
 
     const handleEquipmentBoxClick = (e) => {
         console.log(e.target.value)
-        switch (e.target.value) {
-            case 'spells':
-                setEqBoxSelected('spells')
-                break;
-            case 'actions':
-                setEqBoxSelected('actions')
-                break;
-            case 'equipment':
-                setEqBoxSelected('equipment')
-                break;
-            case 'traits':
-                setEqBoxSelected('traits')
-                break;
-            case 'extras':
-                setEqBoxSelected('extras')
-                break;
-            default:
-                setEqBoxSelected('spells')
+        setEqBoxSelected(e.target.value)
+        // switch (e.target.value) {
+        //     case 'spells':
+        //         setEqBoxSelected('spells')
+        //         break;
+        //     case 'actions':
+        //         setEqBoxSelected('actions')
+        //         break;
+        //     case 'equipment':
+        //         setEqBoxSelected('equipment')
+        //         break;
+        //     case 'traits':
+        //         setEqBoxSelected('traits')
+        //         break;
+        //     case 'extras':
+        //         setEqBoxSelected('extras')
+        //         break;
+        //     default:
+        //         setEqBoxSelected('spells')
                 
-        }
+        // }
     }
 
     const renderEqBoxType = () => {
@@ -305,20 +320,25 @@ export default function CharacterSheet() {
                 </InspirationBox>
                 <HealthBox>
                     <div>
-                        <div><p>CURRENT</p></div>
-                        <div className="mid"><h2>{character.hp}</h2></div>
+                        <button name="heal" onClick={handleHP}>Heal</button>
+                        <input value={newHP} onChange={e=>setNewHP(e.target.value)} className="mid" type='number'/>
+                        <button name='damage' onClick={handleHP}>Damage</button>
                     </div>
                     <div>
-                        <div><p>MAXIMUM</p></div>
-                        <div className="mid"><h2>{character.hp}</h2></div>
+                        <div><p>CURRENT</p></div>
+                        <div className="mid"><h2>{character.current_hp}</h2></div>
                         <div className="bottom">
                             <h4>{'HEALTH & STATUS'}</h4>
                         </div>
                     </div>
                     <div>
+                        <div><p>MAXIMUM</p></div>
+                        <div className="mid"><h2>{character.hp}</h2></div>
+                    </div>
+                    {/* <div>
                         <div><p>TEMPORARY</p></div>
                         <div className="mid"><h2>{'--'}</h2></div>
-                    </div>
+                    </div> */}
                 </HealthBox>
                 <SavingThrow>
                     <div>
@@ -350,7 +370,7 @@ export default function CharacterSheet() {
                     <p>LANGUAGES</p>
                     <h3>{race.languages.replace(/[\[\]"]+/g, '')}</h3>
                     <p>TRAITS</p>
-                    <h3>{race.traits.replace(/[\[\]"]+/g, '')}</h3>
+                    <h3>{race.traits.replace(/[\[\]"]+/g, '').replace(/[,]/g, '\n')}</h3>
                 </SensesBox>
                 <ProficiencyBox>
                     <div className="pro-header">
