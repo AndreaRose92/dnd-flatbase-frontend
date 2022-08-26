@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom"
-import Card, { Button, InnerCardGrid, TopSection } from './styles/Cards.style'
+import Card, { InnerCardGrid, TopSection } from './styles/Cards.style'
+import Button  from "./styles/Buttons.style"
 import quill from '../images/quill.png'
 import trashcan from '../images/trashcan.png'
 
