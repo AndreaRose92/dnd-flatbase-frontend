@@ -27,8 +27,6 @@ export default function EditCharacter() {
             .then(r=>r.json())
             .then(data=> {setUpdatedCharacter(data[0])})
     },[])
-
-    console.log(updatedCharacter)
     
     const handleInput = (e) => {
         let formName = e.target.name
