@@ -55,9 +55,10 @@ const TopSection = styled.section`
 
   img {
     border-radius: 20px;
-    max-width: 160px;
+    width: 160px;
     height: 160px;
     padding: 10px;
+    object-fit: cover;
   }
 
   h2 {

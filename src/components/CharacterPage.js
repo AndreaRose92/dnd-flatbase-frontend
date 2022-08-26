@@ -33,8 +33,7 @@ export default function CharacterPage() {
                             <img src={plus} alt='New character plus sign'/><br/>
                             <h2>New Character</h2>
                         </TopSection>
-                        <div>
-                        </div>
+                        
                     </InnerCardGrid>
                 </Card>
             </PlayerGrid>

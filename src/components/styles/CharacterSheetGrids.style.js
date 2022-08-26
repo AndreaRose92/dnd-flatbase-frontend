@@ -12,11 +12,17 @@ const CSHeader = styled.section`
     border: 2px outset #d4af37;
     background: radial-gradient(farthest-corner at 5px 5px,
       #fff 0%, #aaa9ad 100%);
+    display: flex;
+    align-items: center;
+    
   }
 
   div.CSHeader1 > img {
     width: 90px;
-    height: auto;
+    height: 90px;
+    border-radius: 10px;
+    padding: 5px;
+    object-fit: cover;
   }
 
   div.CSHeader2 {
