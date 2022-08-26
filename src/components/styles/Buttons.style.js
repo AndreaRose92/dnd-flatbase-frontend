@@ -33,7 +33,7 @@ const HealthButton = styled.button`
   cursor: pointer;
   background: radial-gradient(farthest-corner at 0px 0px,
     #fff 0%, #aaa9ad 100%);
-
+  color: ${ (props) => props.variant === 'rust' ? '#5c0000' : '#023c19' };
   
   :hover {
     background: radial-gradient(farthest-corner at 0px 0px,

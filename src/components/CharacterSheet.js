@@ -326,7 +326,7 @@ export default function CharacterSheet() {
                     <div className="heal-buttons">
                         <HealthButton name="heal" onClick={handleHP}>Heal</HealthButton>
                         <HealthInput value={newHP} onChange={e=>setNewHP(e.target.value)} className="mid" type='number'/>
-                        <HealthButton name='damage' onClick={handleHP}>Damage</HealthButton>
+                        <HealthButton variant='rust' name='damage' onClick={handleHP}>Damage</HealthButton>
                     </div>
                     <div>
                         <div><p>CURRENT</p></div>
@@ -405,7 +405,19 @@ export default function CharacterSheet() {
                     </div>
                 </ArmorClass>
                 <DefensesConditions>
-
+                    <div>
+                        <div><p>DEFENSES</p></div>
+                        <div className="mid">
+                            
+                        </div>                        
+                    </div>
+                    <div>
+                        <div><p>CONDITIONS</p></div>
+                        <div className="mid"></div>
+                        <div className="bottom">
+                            
+                        </div>
+                    </div>
                 </DefensesConditions>
                 <EquipmentBox>
                     <div className="eq-box-header">

@@ -301,6 +301,10 @@ const DefensesConditions = styled.section`
   border: 2px outset #d4af37;
   background: radial-gradient(farthest-corner at 5px 5px,
     #fff 0%, #aaa9ad 100%);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 2px 10px;
 `
 
 const EquipmentBox = styled.section`
