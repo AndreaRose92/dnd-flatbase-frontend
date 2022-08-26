@@ -6,7 +6,6 @@ import CreateCharacter from './CreateCharacter';
 import { useEffect, useState } from 'react';
 import Home from './Home'
 import NavBar from './NavBar'
-
 import PageWrapper, { ContentWrapper } from "./styles/MainGrids.style"
 import EditCharacter from './EditCharacter.js';
 

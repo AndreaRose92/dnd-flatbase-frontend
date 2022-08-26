@@ -6,30 +6,20 @@ import { Button } from './styles/Cards.style'
 
 export default function CharacterSheet() {
     const params = useParams()
-
     const [isInspired, setIsInspired] = useState(false)
     const [character, setCharacter] = useState({})
-    const [race, setRace] = useState({
-        traits: '',
-        languages: ''
-    })
+    const [race, setRace] = useState({traits: '', languages: ''})
     const [klass, setKlass] = useState({})
     const [charSkills, setCharSkills] = useState([''])
     const [spells, setSpells] = useState([])
     const [eqBoxSelected, setEqBoxSelected] = useState("spells")
     const [newHP, setNewHP] = useState(0)
-    
     const skills = [{name: 'Acrobatics', stat: 'dex'}, {name: 'Animal Handling', stat: 'wis'}, {name: 'Arcana', stat: 'int'}, {name: 'Athletics', stat: 'str'}, {name: 'Deception', stat: 'cha'}, {name: 'History', stat: 'int'}, {name: 'Insight', stat: 'wis'}, {name: 'Intimidation', stat: 'cha'}, {name: 'Investigation', stat: 'int'}, {name: 'Medicine', stat: 'wis'}, {name: 'Nature', stat: 'int'}, {name: 'Perception', stat: 'wis'}, {name: 'Performance', stat: 'cha'}, {name: 'Persuasion', stat: 'cha'}, {name: 'Religion', stat: 'int'}, {name: 'Sleight of Hand', stat: 'dex'}, {name: 'Stealth', stat: 'dex'}, {name: 'Survival', stat: 'wis'}]
-
-    // var regex = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
 
     useEffect(() => {
         fetch(`http://localhost:9292/${params.username}/${params.id}`)
             .then(r=>r.json())
-            .then(data=> {setCharacter(data[0]); setRace(data[1]); setKlass(data[2]); setCharSkills(charSkills => data[3].flatMap(skill => skill)); setSpells(data[4])})
-    },[params.username, params.id])
-
-    console.log(race, klass)
+            .then(data=> {setCharacter(data[0]); setRace(data[1]); setKlass(data[2]); setCharSkills(charSkills => data[3].flatMap(skill => skill)); setSpells(data[4])})},[params.username, params.id])
 
     const handleHP = (e) => {
         e.preventDefault()
@@ -40,9 +30,7 @@ export default function CharacterSheet() {
         })
             .then(r=>r.json())
             .then(data=>setCharacter(data))
-        
     }
-
 
     function statCalculation(num) {
         let modifier = Math.floor((num - 10) / 2)
@@ -68,7 +56,6 @@ export default function CharacterSheet() {
         return total
     }
 
-
     const renderSkills = skills.map(skill => {
             return (<>
                 <h3>{charSkills.includes(skill.name) ? "●" : "○"}</h3>
@@ -93,26 +80,6 @@ export default function CharacterSheet() {
     const handleEquipmentBoxClick = (e) => {
         console.log(e.target.value)
         setEqBoxSelected(e.target.value)
-        // switch (e.target.value) {
-        //     case 'spells':
-        //         setEqBoxSelected('spells')
-        //         break;
-        //     case 'actions':
-        //         setEqBoxSelected('actions')
-        //         break;
-        //     case 'equipment':
-        //         setEqBoxSelected('equipment')
-        //         break;
-        //     case 'traits':
-        //         setEqBoxSelected('traits')
-        //         break;
-        //     case 'extras':
-        //         setEqBoxSelected('extras')
-        //         break;
-        //     default:
-        //         setEqBoxSelected('spells')
-                
-        // }
     }
 
     const renderEqBoxType = () => {
@@ -207,7 +174,7 @@ export default function CharacterSheet() {
             <CharacterGrid>
                 <CSHeader>                
                     <div className='CSHeader1'>                
-                        <img src="" alt='Character avatar'/>
+                        <img src={character.image} alt='Character avatar'/>
                         
                     </div>    
                     <div className='CSHeader2'>
@@ -337,10 +304,6 @@ export default function CharacterSheet() {
                         <div><p>MAXIMUM</p></div>
                         <div className="mid"><h2>{character.hp}</h2></div>
                     </div>
-                    {/* <div>
-                        <div><p>TEMPORARY</p></div>
-                        <div className="mid"><h2>{'--'}</h2></div>
-                    </div> */}
                 </HealthBox>
                 <SavingThrow>
                     <div>

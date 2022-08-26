@@ -1,19 +1,13 @@
 import { useEffect, useState } from "react"
-import { Link, useParams, Route, useRouteMatch} from "react-router-dom"
-// import CharacterSheet from './CharacterSheet';
-// import CreateCharacter from './CreateCharacter';
+import { Link, useParams} from "react-router-dom"
 import CharCard from "./CharCard"
-// import CharacterSheet from './CharacterSheet'
 import { PlayerGrid, PCWrapper } from "./styles/MainGrids.style"
 import Card, { InnerCardGrid, TopSection } from "./styles/Cards.style"
-
 import charactersBanner from '../images/characters.png'
 import plus from '../images/plus.png'
 
 export default function CharacterPage() {
     const params = useParams()
-    const match = useRouteMatch()
-    
     const [characters, setCharacters] = useState([])
 
     useEffect(()=>{
@@ -22,15 +16,9 @@ export default function CharacterPage() {
             .then(data=>setCharacters(data))
     }, [])
     
-    const handleDelete = (i) => {
-        setCharacters(characters => characters.filter(c => c.id !== i))
-    }
+    const handleDelete = (i) => {setCharacters(characters => characters.filter(c => c.id !== i))}
 
-    const renderCharacters = characters.map(character => {
-        return (
-            <CharCard key={character.id} character={character} handleDelete={handleDelete}/> 
-        )
-    })
+    const renderCharacters = characters.map(character => {return (<CharCard key={character.id} character={character} handleDelete={handleDelete}/>)})
 
     return (
         <PCWrapper>

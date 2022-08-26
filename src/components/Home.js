@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useHistory } from "react-router-dom"
+import { Link } from "react-router-dom"
 import PlayerCard from './PlayerCard'
 
 import { PCWrapper, PlayerGrid } from './styles/MainGrids.style'
@@ -10,8 +10,7 @@ import plus from '../images/plus.png'
 
 const Home = ({players, setPlayers}) => {
 
-  const history = useHistory()
-  const [newPlayer, setNewPlayer] = useState('')
+  const [newPlayer, setNewPlayer] = useState({name: '', image: ''})
 
   const handleInput = (e) => {
     let formName = e.target.name
@@ -26,18 +25,19 @@ const Home = ({players, setPlayers}) => {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
-        username: newPlayer
+        username: newPlayer.name,
+        image: newPlayer.image
       })
     })
       .then(r=>r.json())
       .then(data=>setPlayers(players => [...players, data]))
-    setNewPlayer('')
+    setNewPlayer({name: '', image: ''})
   }
 
   const renderPlayers = players.map(player => {
     return (
       <CardBox as={Link}  to={`/${player.username}`} key={player.id}>
-        <PlayerCard username={player.username} />
+        <PlayerCard username={player.username} image={player.image} />
       </CardBox>
     )
   })
@@ -54,8 +54,10 @@ const Home = ({players, setPlayers}) => {
             <TopSection>
               <img src={plus} alt='New player plus sign'/><br/>
               <form onSubmit={handleSubmit}>
-                <label htmlFor="newPlayer">New Player:</label>
-                <Input type="text" name="newPlayer" value={newPlayer} onChange={handleInput} />
+                <label htmlFor="newPlayerName">Player Name:</label>
+                <Input type="text" name="newPlayerName" value={newPlayer.name} onChange={handleInput} /><br/>
+                <label htmlFor="newPlayerImage">Player Avatar:</label>
+                <Input type="text" name="newPlayerImage" value={newPlayer.image} onChange={handleInput} /><br/>
                 <SubmitInput type="submit" />
               </form>
             </TopSection>

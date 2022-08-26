@@ -9,9 +9,6 @@ export default function EditCharacter() {
     const history = useHistory()
     let username = params.username
     let id = params.id
-
-    // console.log(character, race, klass)
-    
     
     const [updatedCharacter, setUpdatedCharacter] = useState({
         name: '',
@@ -51,19 +48,6 @@ export default function EditCharacter() {
         })
         .then(r=>r.json())
         .then(()=>history.push(`/${username}/${id}`))
-        // setUpdatedCharacter({
-        //     name: '',
-        //     level: 0,
-        //     str: 0,
-        //     dex: 0,
-        //     con: 0,
-        //     int: 0,
-        //     wis: 0,
-        //     cha: 0,
-        //     player: '',
-        //     klass: '',
-        //     race: ''
-        // })
     }
     
 

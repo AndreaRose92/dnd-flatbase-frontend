@@ -2,12 +2,12 @@
 import Card, { InnerCardGrid, TopSection } from './styles/Cards.style'
 
 
-export default function PlayerCard({username}) {
+export default function PlayerCard({image, username}) {
     return(
         <Card>
             <InnerCardGrid>
                 <TopSection>
-                    <img alt='User avatar'/><br/>
+                    <img src={image} alt='User avatar'/><br/>
                     <h2>{username}</h2>
                 </TopSection>
                 <div></div>

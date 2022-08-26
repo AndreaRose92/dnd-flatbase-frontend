@@ -7,11 +7,10 @@ import FormGrid, { FormWrapper } from "./styles/FormGrids.style"
 export default function CreateCharacter() {
     const params = useParams()
     const history = useHistory()
-
     let username = params.username
-
     const [newCharacter, setNewCharacter] = useState({
         name: '',
+        image: '',
         level: 0,
         str: 0,
         dex: 0,
@@ -44,6 +43,7 @@ export default function CreateCharacter() {
         .then(()=>history.push(`/${username}`))
         setNewCharacter({
             name: '',
+            image: '',
             level: 0,
             str: 0,
             dex: 0,
@@ -56,8 +56,6 @@ export default function CreateCharacter() {
             race: ''
         })
     }
-    
-
 
     return (
         <FormWrapper>
@@ -65,13 +63,12 @@ export default function CreateCharacter() {
                 
                 <FormGrid>
                     <div><h1>Character Builder</h1></div>
-                    {/* <label htmlFor='player'>Player:</label>
-                    <input type="text" name="player" onChange={handleInput}/><br/> */}
                     <label htmlFor='name'>Name:
                         <Input type="text" name="name" onChange={handleInput}/>
                     </label>
-                    {/* <label htmlFor='image'>Image:</label>
-                    <input type="text" name="image" onChange={handleInput}/> */}
+                    <label htmlFor='image'>Image:
+                        <Input type="text" name="image" onChange={handleInput}/>
+                    </label>
                     <label htmlFor='level'>Level:
                         <Input type="number" name="level" onChange={handleInput}/>
                     </label>
