@@ -10,6 +10,10 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
   }
 
+  h1 {
+    font-size: 2.7rem;
+  }
+
   body {
     height: 100%;
     width: 100%;

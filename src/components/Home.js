@@ -2,9 +2,10 @@ import { useState } from "react";
 import { Link, useHistory } from "react-router-dom"
 import PlayerCard from './PlayerCard'
 
-import { PlayerGrid } from './styles/MainGrids.style'
+import { PCWrapper, PlayerGrid } from './styles/MainGrids.style'
 import Card, { CardBox, InnerCardGrid, TopSection } from './styles/Cards.style'
 import Input, { SubmitInput } from './styles/Input.style'
+import playersBanner from '../images/playerslgbtq+.png'
 import plus from '../images/plus.png'
 
 const Home = ({players, setPlayers}) => {
@@ -42,23 +43,28 @@ const Home = ({players, setPlayers}) => {
   })
 
   return(
-    <PlayerGrid>
-      {renderPlayers}
-      <Card>
-        <InnerCardGrid>
-          <TopSection>
-            <img src={plus} alt='New player plus sign'/><br/>
-            <form onSubmit={handleSubmit}>
-              <label htmlFor="newPlayer">New Player:</label>
-              <Input type="text" name="newPlayer" value={newPlayer} onChange={handleInput} />
-              <SubmitInput type="submit" />
-            </form>
-          </TopSection>
-          <div>
-          </div>
-        </InnerCardGrid>
-      </Card>
-    </PlayerGrid>
+    <PCWrapper>
+      <section>
+        <img src={playersBanner} alt='Players banner'/>
+      </section>
+      <PlayerGrid>
+        {renderPlayers}
+        <Card>
+          <InnerCardGrid>
+            <TopSection>
+              <img src={plus} alt='New player plus sign'/><br/>
+              <form onSubmit={handleSubmit}>
+                <label htmlFor="newPlayer">New Player:</label>
+                <Input type="text" name="newPlayer" value={newPlayer} onChange={handleInput} />
+                <SubmitInput type="submit" />
+              </form>
+            </TopSection>
+            <div>
+            </div>
+          </InnerCardGrid>
+        </Card>
+      </PlayerGrid>
+    </PCWrapper>
   )
 }
 

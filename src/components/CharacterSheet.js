@@ -205,14 +205,16 @@ export default function CharacterSheet() {
     return (
         <CharacterWrapper>
             <CharacterGrid>
-                <CSHeader>
+                <CSHeader>                
                     <div className='CSHeader1'>                
-                        <p>Hello World</p>
+                        <img src="" alt='Character avatar'/>
+                        
                     </div>    
                     <div className='CSHeader2'>
                         <h1>{character.name}</h1>
-                        <h4>{race.name}</h4>
-                        <h4>{klass.name}</h4>
+                        <div>                            
+                            <h2>{`Level ${character.level} ${race.name} ${klass.name}`}</h2>
+                        </div>
                     </div>
                 </CSHeader>
                 <StatBox>
@@ -366,7 +368,7 @@ export default function CharacterSheet() {
                         </div>                        
                     </div>
                 </SavingThrow>
-                <SensesBox>
+                <SensesBox>                    
                     <p>LANGUAGES</p>
                     <h3>{race.languages.replace(/[\[\]"]+/g, '')}</h3>
                     <p>TRAITS</p>
