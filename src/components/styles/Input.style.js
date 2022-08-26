@@ -44,5 +44,22 @@ const SelectInput = styled.select`
   }
 `
 
-export { SubmitInput, SelectInput }
+const HealthInput = styled.input`
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  font-size: 1.8rem;
+  border: 2px ridge #d4af37;
+  background: radial-gradient(farthest-corner at 0px 0px,
+    #fff 0%, #aaa9ad 100%);
+  padding: 0 10px;
+
+  :focus {
+    background: radial-gradient(farthest-corner at 0px 0px,
+    #fff 0%, #d9cea9 100%);
+    outline: none;
+  }
+`
+
+export { SubmitInput, SelectInput, HealthInput }
 export default Input
