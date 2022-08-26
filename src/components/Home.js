@@ -61,8 +61,6 @@ const Home = ({players, setPlayers}) => {
                 <SubmitInput type="submit" />
               </form>
             </TopSection>
-            <div>
-            </div>
           </InnerCardGrid>
         </Card>
       </PlayerGrid>
