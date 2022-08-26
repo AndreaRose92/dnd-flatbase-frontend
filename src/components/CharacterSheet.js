@@ -80,7 +80,6 @@ export default function CharacterSheet() {
     })
 
     const handleEquipmentBoxClick = (e) => {
-        console.log(e.target.value)
         setEqBoxSelected(e.target.value)
     }
 
