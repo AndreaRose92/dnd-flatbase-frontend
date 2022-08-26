@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+
 import { CharacterGrid, CharacterWrapper } from "./styles/MainGrids.style"
 import { StatBox, CSHeader, AuxiliaryBox, InspirationBox, HealthBox, SavingThrow, ProficiencyBox, EquipmentBox, SensesBox, InitiativeBox, ArmorClass, DefensesConditions, EquipmentWrap } from "./styles/CharacterSheetGrids.style"
-import { Button } from './styles/Cards.style'
+import Input, { HealthInput } from "./styles/Input.style"
+import Button, { HealthButton } from './styles/Buttons.style'
 
 export default function CharacterSheet() {
     const params = useParams()
@@ -288,21 +290,25 @@ export default function CharacterSheet() {
                     </div>
                 </InspirationBox>
                 <HealthBox>
-                    <div>
-                        <button name="heal" onClick={handleHP}>Heal</button>
-                        <input value={newHP} onChange={e=>setNewHP(e.target.value)} className="mid" type='number'/>
-                        <button name='damage' onClick={handleHP}>Damage</button>
+                    <div className="heal-buttons">
+                        <HealthButton name="heal" onClick={handleHP}>Heal</HealthButton>
+                        <HealthInput value={newHP} onChange={e=>setNewHP(e.target.value)} className="mid" type='number'/>
+                        <HealthButton variant='rust' name='damage' onClick={handleHP}>Damage</HealthButton>
                     </div>
                     <div>
                         <div><p>CURRENT</p></div>
-                        <div className="mid"><h2>{character.current_hp}</h2></div>
+                        <div className="mid"><h2>{character.current_hp}</h2></div>                        
+                    </div>
+                    <div>
+                        <div><p>MAXIMUM</p></div>
+                        <div className="mid"><h2>{character.hp}</h2></div>
                         <div className="bottom">
                             <h4>{'HEALTH & STATUS'}</h4>
                         </div>
                     </div>
                     <div>
-                        <div><p>MAXIMUM</p></div>
-                        <div className="mid"><h2>{character.hp}</h2></div>
+                        <div><p>TEMPORARY</p></div>
+                        <div className="mid"><h2>{'--'}</h2></div>
                     </div>
                 </HealthBox>
                 <SavingThrow>
@@ -366,7 +372,19 @@ export default function CharacterSheet() {
                     </div>
                 </ArmorClass>
                 <DefensesConditions>
-
+                    <div>
+                        <div><p>DEFENSES</p></div>
+                        <div className="mid">
+                            
+                        </div>                        
+                    </div>
+                    <div>
+                        <div><p>CONDITIONS</p></div>
+                        <div className="mid"></div>
+                        <div className="bottom">
+                            
+                        </div>
+                    </div>
                 </DefensesConditions>
                 <EquipmentBox>
                     <div className="eq-box-header">
