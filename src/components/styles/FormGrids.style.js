@@ -52,5 +52,9 @@ const EditGrid = styled.div`
   }
 `
 
+const HealBoxGrid = styled.div`
+  
+`
+
 export { FormWrapper, EditGrid }
 export default FormGrid
