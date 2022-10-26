@@ -1,70 +1,170 @@
-# Getting Started with Create React App
+<a name="readme-top"></a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+-->
+# [![Andrea][linkedin-shield]][linkedin-url1] Andrea [![Alie][linkedin-shield]][linkedin-url2] Alie [![Kelsey][linkedin-shield]][linkedin-url3] Kelsey
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/AndreaRose92/dnd-flatbase-backend">GitHub BACKEND</a>
+  <a href="https://github.com/AndreaRose92/dnd-flatbase-frontend">GitHub FRONTEND</a>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<h1 align="center">DND FLATBASE</h1>
 
-### `npm test`
+  <p align="center">
+    Welcome to DND Flatbase!
+    <br />
+    <br />
+    <br />
+  </p>
+</div>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Dnd Flatbase is a full-stack web application which calls to the DnD5E web API for data on classes, races, spells, etc... which was used to create a custom API. We built a frontend to fetch from our databases which allows a user to select a player or create a new one. Clicking on that player card then navigates the user to a list of their characters as cards. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The character cards can be clicked to open their individual character sheet or the character can be edited or deleted from the main character page.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The character sheet contains functionality for healing or damaging current hit point levels. Saving throws and skills apply the characters proficiency bonus based on their chosen race and class. In addition, the character will populate spells if their class has any and the number of spells at each spell level is determined by the characters level.
 
-## Learn More
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+### Built With
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+* [![React][React.js]][React-url]
+* [![Ruby][Ruby]][Ruby-url]
 
-### Analyzing the Bundle Size
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<!-- GETTING STARTED -->
+## Getting Started
 
-### Advanced Configuration
+A few dependencies are needed to run the frontend and backend.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Prerequisites
 
-### Deployment
+You'll need to run bundler for the backend and node package manager on the frontend.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+For the backend, bundler should install all of the gems in the gemfile if you run:
+  ```sh
+  bundle install 
+  ```
 
-### `npm run build` fails to minify
+The package.json file should contain all the packages node needs to run the frontend.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### Frontend Installation
+
+1. Fork and clone the repo
+   ```sh
+   git clone https://github.com/AndreaRose92/dnd-flatbase-frontend
+   ```
+2. Install NPM packages on the frontend clone
+   ```sh
+   npm install
+   ```
+3. Run the development server
+    ```sh
+    npm start
+    ```
+
+### Backend Installation
+
+1. Fork and clone the repo
+   ```sh
+   git clone https://github.com/AndreaRose92/dnd-flatbase-backend
+   ```
+2. Install Ruby gems on the backend clone
+   ```sh
+   bundle install
+   ```
+3. Run the migrations and seed the database
+    ```sh
+    bundle exec rake db:migrate db:seed
+    ```
+4. Run the database server
+    ```sh
+    bundle exec rake server
+    ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+
+<!-- CONTACT -->
+## Contact
+Andrea Rosentel - [LinkedIn][linkedin-url1] - [GitHub](https://github.com/AndreaRose92/)
+
+Alie Brubaker - [LinkedIn][linkedin-url2] - [GitHub](https://github.com/AlbertaLynnBrubaker)
+
+Kelsey Weeks - [LinkedIn][linkedin-url3] 
+
+<!-- - [GitHub]() -->
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
+[contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url1]: https://www.linkedin.com/in/andrearosentel/
+[linkedin-url2]: https://www.linkedin.com/in/alie-brubaker/
+[linkedin-url3]: https://www.linkedin.com/in/kelseyweeks/
+[product-screenshot]: images/screenshot.png
+[file-structure-screenshot]: images/screenshot.png  
+[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
+[Next-url]: https://nextjs.org/
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[Ruby]: https://www.ruby-lang.org/images/header-ruby-logo.png
+[Ruby-url]: https://www.ruby-lang.org/en/
+[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
+[JQuery-url]: https://jquery.com 
